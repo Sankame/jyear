@@ -7,7 +7,7 @@ let router = Router()
 router.add(templateEngine: StencilTemplateEngine())
 
 //Handle HTTP GET requests to Stencil
-router.get("/articles") { request, response, next in
+router.get("/") { request, response, next in
     defer {
         next()
     }
