@@ -54,9 +54,10 @@
 							<!-- <span class="avatar"><img src="images/avatar.jpg" alt="" /></span> -->
 							<p class="jfont-1x">
 								<i class="fa fa-flag fa-1x"></i>今年は<br>
-								<font color="dark-orange" class="jfont-3x">平成28年</font><br>
+								<font color="dark-orange" class="jfont-3x">平成{{jyear}}年</font><br>
 								です
 							</p>
+
 							<p class="jfont-0x">
 								<i class="fa fa-pencil fa-1x"></i>憶え方：西暦の下2桁＋12＝平成<br>
 								例：20<font color="green">16</font>年＋<font color="green">12</font>＝平成<font color="green">28</font>年
