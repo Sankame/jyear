@@ -12,9 +12,10 @@ router.get("/") { request, response, next in
         next()
     }
 
+	let familyLine = FamilyLine()
     // the example from https://github.com/kylef/Stencil/blob/master/README.md
     var context = [
-       "jyear": "28"       
+       "jyear": familyLine.getJYearList()      
     ]
 
     try response.render("document.stencil", context: context).end()
