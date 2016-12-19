@@ -101,7 +101,13 @@
 						<hr />
 						-->
 					</section>
-
+<table>
+{% for row in jyear %}
+<tr>
+<td>{{ row.year }}</td><td>{{ row.jYear }}</td>
+</tr>
+{% endfor %}
+</table>
 				<!-- Footer -->
 					<footer id="footer">
 						<ul class="copyright">
