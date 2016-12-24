@@ -58,4 +58,19 @@ class FamilyLine{
 
 		return list
 	}
+
+	public func getJYearList2() -> Dictionary<Int, String>{
+
+		var list : Dictionary<Int, String> = [:]
+
+		for year1 in 1900...2016 {
+    		if syowa.isMyEra(year:year1){
+				list[year1] = syowa.getJYearFull(year:year1)
+    		}
+			if heisei.isMyEra(year:year1){
+				list[year1] = heisei.getJYearFull(year:year1)
+    		}
+		}
+		return list
+	}
 }

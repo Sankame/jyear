@@ -14,8 +14,9 @@ router.get("/") { request, response, next in
 
 	let familyLine = FamilyLine()
     // the example from https://github.com/kylef/Stencil/blob/master/README.md
-    var context = [
+    var context:Dictionary<String,Any> = [
        "jYearList": familyLine.getJYearList()      
+       ,"jYearList2": familyLine.getJYearList2()      
     ]
 
     try response.render("document.stencil", context: context).end()
