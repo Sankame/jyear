@@ -37,6 +37,7 @@ class FamilyLine{
 		}
 	}
 
+    //ArrayListみたいなものシーケンシャルに走査したい時はこっち。
 	public func getJYearList() -> Array<Dictionary<String, String>>{
 
 		var list = [Dictionary<String, String>]()
@@ -44,13 +45,13 @@ class FamilyLine{
 		for year1 in 1900...2016 {
     		if syowa.isMyEra(year:year1){
 				let item: Dictionary<String, String> = [
-					"year":String(year1)+"年", "jYear":syowa.getJYearFull(year:year1)
+					"year":String(year1), "jYear":syowa.getJYearFull(year:year1)
 				]
 				list.append(item)
     		}
 			if heisei.isMyEra(year:year1){
 				let item: Dictionary<String, String> = [
-					"year":String(year1)+"年", "jYear":heisei.getJYearFull(year:year1)
+					"year":String(year1), "jYear":heisei.getJYearFull(year:year1)
 				]
 				list.append(item)
     		}
@@ -59,6 +60,7 @@ class FamilyLine{
 		return list
 	}
 
+    //Mapみたいなもの。Keyに対するValueを取得したい時はこっち。
 	public func getJYearList2() -> Dictionary<Int, String>{
 
 		var list : Dictionary<Int, String> = [:]
@@ -73,4 +75,5 @@ class FamilyLine{
 		}
 		return list
 	}
+    
 }

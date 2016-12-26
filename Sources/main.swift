@@ -16,7 +16,7 @@ router.get("/") { request, response, next in
     // the example from https://github.com/kylef/Stencil/blob/master/README.md
     var context:Dictionary<String,Any> = [
        "jYearList": familyLine.getJYearList()      
-       ,"jYearList2": familyLine.getJYearList2()      
+       ,"jYearList2": familyLine.getJYearList2()
     ]
 
     try response.render("document.stencil", context: context).end()

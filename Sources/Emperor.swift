@@ -32,7 +32,6 @@ class Emperor{
     public func getJYearFull(year:Int)->String{
         return self.jYearName
                 + String(getJYear(year:year))
-                + "年"
     }
 
     public func isMyEra(year:Int)->Bool{
