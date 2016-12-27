@@ -53,8 +53,8 @@
 						<header>
 							<!-- <span class="avatar"><img src="images/avatar.jpg" alt="" /></span> -->
 							<p class="jfont-1x">
-								<i class="fa fa-flag fa-1x"></i>今年は<br>
-                                <font color="dark-orange" class="jfont-3x">{{jYearList2.2016}}年</font><br>
+                                <i class="fa fa-flag fa-1x"></i>今年は<br>
+                                <font color="dark-orange" class="jfont-3x">{{thisJYear}}年</font><br>
 								です
 							</p>
 
@@ -101,20 +101,11 @@
 						<hr />
 						-->
 					</section>
-<!--
-<table>
-{% for row in jyear %}
-<tr>
-<td>{{ row.year }}</td><td>{{ row.jYear }}</td>
-</tr>
-{% endfor %}
-</table>
--->
 
 <table>
 {% for row in jYearList %}
 <tr>
-<td>{{ row.year }}</td><td>{{ row.jYear }}</td>
+<td>{{ row.year }}年</td><td>{{ row.jYear }}年</td>
 </tr>
 {% endfor %}
 </table>

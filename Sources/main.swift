@@ -12,11 +12,15 @@ router.get("/") { request, response, next in
         next()
     }
 
+    let thisYear:Int = Int(DateUtil.getThisYearString())!
+    
 	let familyLine = FamilyLine()
+    let jYearMap = familyLine.getJYearMap()
+    
     // the example from https://github.com/kylef/Stencil/blob/master/README.md
     var context:Dictionary<String,Any> = [
-       "jYearList": familyLine.getJYearList()      
-       ,"jYearList2": familyLine.getJYearList2()
+       "jYearList": familyLine.getJYearList()
+        ,"thisJYear" : jYearMap[thisYear] as String!
     ]
 
     try response.render("document.stencil", context: context).end()

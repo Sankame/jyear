@@ -61,7 +61,7 @@ class FamilyLine{
 	}
 
     //Mapみたいなもの。Keyに対するValueを取得したい時はこっち。
-	public func getJYearList2() -> Dictionary<Int, String>{
+	public func getJYearMap() -> Dictionary<Int, String>{
 
 		var list : Dictionary<Int, String> = [:]
 
