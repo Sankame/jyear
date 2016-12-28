@@ -14,7 +14,7 @@ router.get("/") { request, response, next in
 
     let thisYear:Int = Int(DateUtil.getThisYearString())!
     
-	let familyLine = FamilyLine()
+    let familyLine = FamilyLine(from:DateUtil.HEAD_OF_20TH_CENTURY,to:thisYear)
     let jYearMap = familyLine.getJYearMap()
     
     // the example from https://github.com/kylef/Stencil/blob/master/README.md

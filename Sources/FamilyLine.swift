@@ -2,10 +2,16 @@ import Foundation
 
 class FamilyLine{
 
+    private let fromYear:Int
+    private let toYear:Int
+    
 	private let syowa:Emperor
 	private let heisei:Emperor
 
-	init(){
+    init(from fromYear:Int, to toYear:Int){
+        self.fromYear = fromYear
+        self.toYear = toYear
+        
 		self.syowa = Emperor()
 		syowa.setJYearName(jYearName:"昭和")
 		syowa.setTenureStart(year:1926)
@@ -26,7 +32,7 @@ class FamilyLine{
 
 	public func showJYearList(){
 
-		for year1 in 1900...2016 {
+		for year1 in self.fromYear...self.toYear {
     		if syowa.isMyEra(year:year1){
         		print(syowa.getJYearFull(year:year1))
     		}
@@ -42,7 +48,7 @@ class FamilyLine{
 
 		var list = [Dictionary<String, String>]()
 
-		for year1 in 1900...2016 {
+		for year1 in self.fromYear...self.toYear {
     		if syowa.isMyEra(year:year1){
 				let item: Dictionary<String, String> = [
 					"year":String(year1), "jYear":syowa.getJYearFull(year:year1)
@@ -65,7 +71,7 @@ class FamilyLine{
 
 		var list : Dictionary<Int, String> = [:]
 
-		for year1 in 1900...2016 {
+		for year1 in self.fromYear...self.toYear {
     		if syowa.isMyEra(year:year1){
 				list[year1] = syowa.getJYearFull(year:year1)
     		}
