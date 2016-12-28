@@ -15,6 +15,7 @@ class DateUtil{
         dateFormatter.locale = Locale(identifier: "ja_JP")
         dateFormatter.dateFormat = "yyyy"
         
+//        return "2017"
         return dateFormatter.string(from: now)
         
     }

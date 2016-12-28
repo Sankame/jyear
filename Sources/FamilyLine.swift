@@ -20,27 +20,7 @@ class FamilyLine{
 		self.heisei = Emperor()
 		heisei.setJYearName(jYearName:"平成")
 		heisei.setTenureStart(year:1989)
-		heisei.setTenureEnd(year:getThisYearString())
-	}
-
-	private func getThisYearString() -> Int{
-		let dateFormatter = DateFormatter()
-		dateFormatter.locale = Locale(identifier: "ja_JP")
-		dateFormatter.dateFormat = "yyyy"
-		return Int(dateFormatter.string(from:Date()))!
-	}
-
-	public func showJYearList(){
-
-		for year1 in self.fromYear...self.toYear {
-    		if syowa.isMyEra(year:year1){
-        		print(syowa.getJYearFull(year:year1))
-    		}
-  
-			if heisei.isMyEra(year:year1){
-        		print(heisei.getJYearFull(year:year1))
-    		}
-		}
+		heisei.setTenureEnd(year:self.toYear)
 	}
 
     //ArrayListみたいなものシーケンシャルに走査したい時はこっち。
