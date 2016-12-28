@@ -16,7 +16,7 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-		<link rel="alternate" hreflang="ja" href="https://jcal.ml/">
+
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
 		.jfont-0x {
@@ -42,6 +42,8 @@
 			text-transform: none;
 		}
 		</style>
+
+<script src="assets/test.js"></script>
 	</head>
 	<body class="is-loading">
 
