@@ -42,8 +42,6 @@
 			text-transform: none;
 		}
 		</style>
-
-<script src="assets/test.js"></script>
 	</head>
 	<body class="is-loading">
 
