@@ -23,29 +23,31 @@ class FamilyLine{
 		heisei.setTenureEnd(year:self.toYear)
 	}
 
-    //ArrayListみたいなものシーケンシャルに走査したい時はこっち。
-	public func getJYearList() -> Array<Dictionary<String, String>>{
+    //降順に和暦・西暦リストを取得。
+    public func getJYearListDesc() -> Array<Dictionary<String, String>>{
 
-		var list = [Dictionary<String, String>]()
+        var list = [Dictionary<String, String>]()
+        
+        for year1 in (fromYear...toYear).reversed(){
 
-		for year1 in self.fromYear...self.toYear {
-    		if syowa.isMyEra(year:year1){
-				let item: Dictionary<String, String> = [
-					"year":String(year1), "jYear":syowa.getJYearFull(year:year1)
-				]
-				list.append(item)
-    		}
-			if heisei.isMyEra(year:year1){
-				let item: Dictionary<String, String> = [
-					"year":String(year1), "jYear":heisei.getJYearFull(year:year1)
-				]
-				list.append(item)
-    		}
-		}
+            if syowa.isMyEra(year:year1){
+                let item: Dictionary<String, String> = [
+                    "year":String(year1), "jYear":syowa.getJYearFull(year:year1)
+                ]
+                list.append(item)
+            }
+            if heisei.isMyEra(year:year1){
+                let item: Dictionary<String, String> = [
+                    "year":String(year1), "jYear":heisei.getJYearFull(year:year1)
+                ]
+                list.append(item)
+            }
 
-		return list
-	}
-
+        }
+        
+        return list
+    }
+    
     //Mapみたいなもの。Keyに対するValueを取得したい時はこっち。
 	public func getJYearMap() -> Dictionary<Int, String>{
 
