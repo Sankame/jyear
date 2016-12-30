@@ -117,12 +117,17 @@
                         </table>
                     </div>
 				<!-- Footer -->
-					<footer id="footer">
-						<ul class="copyright">
-							<li>&copy; sankame</li>
-						</ul>
-					</footer>
-			</div>
+                    <footer id="footer">
+                        <p class="case-original">
+                        運営者：sankame<br>
+                        メール：m2ad0504@outlook.jp<br>
+                        住所：千葉県
+                        </p>
+                        <ul class="copyright">
+                            <li>&copy; sankame</li><li>Designed by <a href="https://html5up.net/identity" target="_blank">JANE DOE</a></li>
+                        </ul>
+                    </footer>
+            </div>
 
 			<!-- Scripts -->
 			<!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
