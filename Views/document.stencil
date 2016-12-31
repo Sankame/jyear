@@ -62,7 +62,6 @@
                                 <font color="dark-orange" class="jfont-3x">{{thisJYear}}年</font><br>
 								です
 							</p>
-
 							<p class="jfont-0x">
 								<i class="fa fa-pencil fa-1x"></i>憶え方：西暦の下2桁＋12＝平成<br>
 								例：20<font color="green">16</font>年＋<font color="green">12</font>＝平成<font color="green">28</font>年
@@ -124,7 +123,7 @@
                         住所：千葉県
                         </p>
                         <ul class="copyright">
-                            <li>&copy; sankame</li><li>Designed by <a href="https://html5up.net/identity" target="_blank">JANE DOE</a></li>
+                            <li>&copy; sankame</li><li>Template Designed by <a href="https://html5up.net/identity" target="_blank">JANE DOE</a></li>
                         </ul>
                     </footer>
             </div>
