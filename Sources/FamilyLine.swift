@@ -30,21 +30,20 @@ class FamilyLine{
         
         for year1 in (fromYear...toYear).reversed(){
 
-            if syowa.isMyEra(year:year1){
-                let item: Dictionary<String, String> = [
-                    "year":String(year1), "jYear":syowa.getJYearFull(year:year1)
-                ]
-                list.append(item)
-            }
             if heisei.isMyEra(year:year1){
                 let item: Dictionary<String, String> = [
                     "year":String(year1), "jYear":heisei.getJYearFull(year:year1)
                 ]
                 list.append(item)
             }
+            if syowa.isMyEra(year:year1){
+                let item: Dictionary<String, String> = [
+                    "year":String(year1), "jYear":syowa.getJYearFull(year:year1)
+                ]
+                list.append(item)
+            }
 
         }
-        
         return list
     }
     
@@ -54,12 +53,12 @@ class FamilyLine{
 		var list : Dictionary<Int, String> = [:]
 
 		for year1 in self.fromYear...self.toYear {
-    		if syowa.isMyEra(year:year1){
-				list[year1] = syowa.getJYearFull(year:year1)
-    		}
 			if heisei.isMyEra(year:year1){
 				list[year1] = heisei.getJYearFull(year:year1)
     		}
+            if syowa.isMyEra(year:year1){
+                list[year1] = syowa.getJYearFull(year:year1)
+            }
 		}
 		return list
 	}
