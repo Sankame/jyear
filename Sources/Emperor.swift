@@ -24,6 +24,10 @@ class Emperor{
         self.jYearName = jYearName
     }
 
+    public func getJYearName()->String{
+        return self.jYearName
+    }
+
     public func getJYear(year:Int)->Int{
         let diff = year - self.tenureStart + 1
         return diff

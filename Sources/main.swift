@@ -17,14 +17,15 @@ router.get("/") { request, response, next in
     let thisYear:Int = Int(DateUtil.getThisYearString())!
 
     let familyLine = FamilyLine(from:DateUtil.HEAD_OF_20TH_CENTURY,to:thisYear)
-
-    let jYearMap = familyLine.getJYearMap()
     
+    let thisJYearFull = familyLine.getThisJYearFull()
+    let thisJYearName = familyLine.getThisJYearName()    
     let jYearList = familyLine.getJYearListDesc()
 
     // the example from https://github.com/kylef/Stencil/blob/master/README.md
     var context:Dictionary<String,Any> = [
-        "thisJYear" : jYearMap[thisYear] as String!
+        "thisJYearFull" : thisJYearFull
+        ,"thisJYearName" : thisJYearName
         ,"jYearList": jYearList
     ]
 

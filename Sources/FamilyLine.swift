@@ -8,6 +8,9 @@ class FamilyLine{
 	private let syowa:Emperor
 	private let heisei:Emperor
 
+    private var jYearFullMap : Dictionary<Int, String> = [:]
+    private var jYearNameMap : Dictionary<Int, String> = [:]
+    
     init(from fromYear:Int, to toYear:Int){
         self.fromYear = fromYear
         self.toYear = toYear
@@ -21,7 +24,28 @@ class FamilyLine{
 		heisei.setJYearName(jYearName:"平成")
 		heisei.setTenureStart(year:1989)
 		heisei.setTenureEnd(year:self.toYear)
+        
+        self.makeJYearMap()
 	}
+    
+    //Mapみたいなもの。Keyに対するValueを取得したい時はこっち。
+    //下記のMapを作成。
+    //Key=西暦、Value=和暦年数
+    //Key=西暦、Value=和暦年号のみ
+    private func makeJYearMap(){
+        
+        for currentYear in self.fromYear...self.toYear {
+            if heisei.isMyEra(year:currentYear){
+                self.jYearFullMap[currentYear] = heisei.getJYearFull(year:currentYear)
+                self.jYearNameMap[currentYear] = heisei.getJYearName()
+            }
+            if syowa.isMyEra(year:currentYear){
+                self.jYearFullMap[currentYear] = syowa.getJYearFull(year:currentYear)
+                self.jYearNameMap[currentYear] = syowa.getJYearName()
+            }
+        }
+
+    }
 
     //降順に和暦・西暦リストを取得。
     public func getJYearListDesc() -> Array<Dictionary<String, String>>{
@@ -47,20 +71,20 @@ class FamilyLine{
         return list
     }
     
-    //Mapみたいなもの。Keyに対するValueを取得したい時はこっち。
-	public func getJYearMap() -> Dictionary<Int, String>{
-
-		var list : Dictionary<Int, String> = [:]
-
-		for year1 in self.fromYear...self.toYear {
-			if heisei.isMyEra(year:year1){
-				list[year1] = heisei.getJYearFull(year:year1)
-    		}
-            if syowa.isMyEra(year:year1){
-                list[year1] = syowa.getJYearFull(year:year1)
-            }
-		}
-		return list
+	public func getJYearFullMap() -> Dictionary<Int, String>{
+        return self.jYearFullMap
 	}
+
+    public func getJYearNameMap() -> Dictionary<Int, String>{
+        return self.jYearNameMap
+    }
+
+    public func getThisJYearFull() -> String{
+        return self.jYearFullMap[self.toYear] as String!
+    }
     
+    public func getThisJYearName() -> String{
+        return self.jYearNameMap[self.toYear] as String!
+    }
+
 }
