@@ -1,0 +1,44 @@
+<!doctype html>
+<html AMP lang="ja">
+    <head>
+    <meta charset="utf-8">
+    <title>{{htmlTitle}}</title>
+    <link rel="canonical" href="http://jyear.net"/>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style amp-custom>
+        body {
+            background-color: white;
+        }
+        amp-img {
+            background-color: gray;
+        }
+        p.jyear {
+            color: #FF0000;
+            font-size: 2.25em;
+        }
+    </style>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
+        <noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    </head>
+
+    <body>
+        <h1>今年は{{thisJYearName}}何年？</h1>
+        <p class="jyear">{{thisJYearFull}}年</p>
+        <p>
+        憶え方：西暦の下2桁＋12＝{{thisJYearName}}<br/>
+        例：2017年＋12＝{{thisJYearName}}29年
+        </p>
+
+        <h2>[和暦・西暦　早見表]</h2>
+        <div>
+        <table>
+        {% for row in jYearList %}
+        <tr><td>{{ row.jYear }}年</td><td>&nbsp;</td><td>{{ row.year }}年</td></tr>
+        {% endfor %}
+        </table>
+        </div>
+<!-- {{hostname}} -->
+    </body>
+</html>

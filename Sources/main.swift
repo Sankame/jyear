@@ -22,14 +22,22 @@ router.get("/") { request, response, next in
     let thisJYearName = familyLine.getThisJYearName()    
     let jYearList = familyLine.getJYearListDesc()
 
+    let htmlTitle = "今年は" + thisJYearName + "何年？(季節の画像付き)"
     // the example from https://github.com/kylef/Stencil/blob/master/README.md
     var context:Dictionary<String,Any> = [
         "thisJYearFull" : thisJYearFull
         ,"thisJYearName" : thisJYearName
         ,"jYearList": jYearList
+        ,"htmlTitle": htmlTitle
+        ,"hostname": request.hostname.lowercased()
     ]
 
-    try response.render("document.stencil", context: context).end()
+    var viewTemplate = "document.stencil"
+    if "amp.jyear.net" == request.hostname.lowercased(){
+        viewTemplate = "amp.stencil"
+    }
+
+    try response.render(viewTemplate, context: context).end()
 }
 
 // Add an HTTP server and connect it to the router
