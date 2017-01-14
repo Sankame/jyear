@@ -32,9 +32,9 @@ router.get("/") { request, response, next in
         ,"hostname": request.hostname.lowercased()
     ]
 
-    var viewTemplate = "document.stencil"
-    if "amp.jyear.net" == request.hostname.lowercased(){
-        viewTemplate = "amp.stencil"
+    var viewTemplate = "home.stencil"
+    if request.hostname.lowercased().hasPrefix("amp.jyear."){
+        viewTemplate = "/amp/home.stencil"
     }
 
     try response.render(viewTemplate, context: context).end()
