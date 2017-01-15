@@ -2,6 +2,9 @@ import Kitura
 import KituraStencil
 import Foundation
 
+import LoggerAPI
+import HeliumLogger
+
 let router = Router()
 
 router.add(templateEngine: StencilTemplateEngine())
@@ -10,6 +13,10 @@ router.all("/", middleware: StaticFileServer(path: "./Views/Public"))
 
 //Handle HTTP GET requests to Stencil
 router.get("/") { request, response, next in
+    //これでドメインは取れる。ローカルならjyear.localになる。
+//    Log.logger = HeliumLogger()
+//    Log.verbose(request.path)
+//    try! response.redirect("https://jyear.net/")
     defer {
         next()
     }
