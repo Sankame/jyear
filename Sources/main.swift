@@ -5,6 +5,12 @@ import Foundation
 import LoggerAPI
 import HeliumLogger
 
+extension String {
+    var isNumeric: Bool {
+        return !isEmpty && range(of: "[^0-9]", options: .regularExpression) == nil
+    }
+}
+
 let router = Router()
 
 router.add(templateEngine: StencilTemplateEngine())
@@ -14,15 +20,24 @@ router.all("/", middleware: StaticFileServer(path: "./Views/Public"))
 //Handle HTTP GET requests to Stencil
 router.get("/") { request, response, next in
     //これでドメインは取れる。ローカルならjyear.localになる。
-//    Log.logger = HeliumLogger()
-//    Log.verbose(request.path)
+    Log.logger = HeliumLogger()
+    
+    let qsYear = request.queryParameters["year"] ?? ""
+
+//    Log.verbose(pYear)
+
 //    try! response.redirect("https://jyear.net/")
     defer {
         next()
     }
 
-    let thisYear:Int = Int(DateUtil.getThisYearString())!
-
+    var thisYear:Int = 0
+    
+    if(qsYear.isNumeric){
+        thisYear = Int(qsYear)!
+    }else{
+        thisYear = Int(DateUtil.getThisYearString())!
+    }
     let familyLine = FamilyLine(from:DateUtil.HEAD_OF_20TH_CENTURY,to:thisYear)
     
     let thisJYearFull = familyLine.getThisJYearFull()

@@ -102,7 +102,9 @@
                     <div class="field jyear-list jfont-x">
                         <table>
                         {% for row in jYearList %}
-                        <tr><td>{{ row.jYear }}年</td><td>&nbsp;</td><td>{{ row.year }}年</td></tr>
+                        <tr>
+                        <td><a href="/?year={{row.year}}">{{ row.jYear }}年&nbsp;{{ row.year }}年</a></td>
+                        </tr>
                         {% endfor %}
                         </table>
                     </div>
