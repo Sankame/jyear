@@ -24,12 +24,8 @@
     </head>
 
     <body>
-        <h1>今年は{{thisJYearName}}何年？</h1>
+        <h1>{{displayYearFull}}は{{thisJYearName}}何年？</h1>
         <p class="jyear">{{thisJYearFull}}年</p>
-        <p>
-        憶え方：西暦の下2桁＋12＝{{thisJYearName}}<br/>
-        例：2017年＋12＝{{thisJYearName}}29年
-        </p>
 
         <h2>[和暦・西暦　早見表]</h2>
         <div>

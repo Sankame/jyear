@@ -2,6 +2,7 @@ import Foundation
 
 class FamilyLine{
 
+    private let displayYear:Int
     private let fromYear:Int
     private let toYear:Int
     
@@ -11,7 +12,8 @@ class FamilyLine{
     private var jYearFullMap : Dictionary<Int, String> = [:]
     private var jYearNameMap : Dictionary<Int, String> = [:]
     
-    init(from fromYear:Int, to toYear:Int){
+    init(display displayYear:Int, from fromYear:Int, to toYear:Int){
+        self.displayYear = displayYear
         self.fromYear = fromYear
         self.toYear = toYear
         
@@ -79,12 +81,19 @@ class FamilyLine{
         return self.jYearNameMap
     }
 
-    public func getThisJYearFull() -> String{
-        return self.jYearFullMap[self.toYear] as String!
+    public func getDisplayJYearFull() -> String{
+        return self.jYearFullMap[self.displayYear] ?? ""
     }
     
-    public func getThisJYearName() -> String{
-        return self.jYearNameMap[self.toYear] as String!
+    public func getDisplayJYearName() -> String{
+        return self.jYearNameMap[self.displayYear] ?? ""
+    }
+
+    public func getDisplayYearFull() -> String{
+        if self.toYear == self.displayYear {
+            return "今年"
+        }
+        return String(self.displayYear) + "年"
     }
 
 }

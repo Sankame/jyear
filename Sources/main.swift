@@ -31,24 +31,31 @@ router.get("/") { request, response, next in
         next()
     }
 
-    var thisYear:Int = 0
+    //現在の西暦
+    let thisYear = Int(DateUtil.getThisYearString())!
+    
+    //表示対象の西暦
+    var displayYear:Int = 0
     
     if(qsYear.isNumeric){
-        thisYear = Int(qsYear)!
+        displayYear = Int(qsYear)!
     }else{
-        thisYear = Int(DateUtil.getThisYearString())!
+        displayYear = Int(DateUtil.getThisYearString())!
     }
-    let familyLine = FamilyLine(from:DateUtil.HEAD_OF_20TH_CENTURY,to:thisYear)
     
-    let thisJYearFull = familyLine.getThisJYearFull()
-    let thisJYearName = familyLine.getThisJYearName()    
+    let familyLine = FamilyLine(display:displayYear, from:DateUtil.HEAD_OF_20TH_CENTURY,to:thisYear)
+    
+    let displayJYearFull = familyLine.getDisplayJYearFull()
+    let displayJYearName = familyLine.getDisplayJYearName()
+    let displayYearFull  = familyLine.getDisplayYearFull()
     let jYearList = familyLine.getJYearListDesc()
 
-    let htmlTitle = "今年は" + thisJYearName + "何年？(季節の画像付き)"
+    let htmlTitle = displayYearFull + "は" + displayJYearName + "何年？(季節の画像付き)"
     // the example from https://github.com/kylef/Stencil/blob/master/README.md
     var context:Dictionary<String,Any> = [
-        "thisJYearFull" : thisJYearFull
-        ,"thisJYearName" : thisJYearName
+        "displayYearFull" : displayYearFull
+        ,"thisJYearFull" : displayJYearFull
+        ,"thisJYearName" : displayJYearName
         ,"jYearList": jYearList
         ,"htmlTitle": htmlTitle
         ,"hostname": request.hostname.lowercased()
