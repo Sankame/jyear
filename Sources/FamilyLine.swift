@@ -10,7 +10,6 @@ class FamilyLine{
 	private let heisei:Emperor
 
     private var jYearFullMap : Dictionary<Int, String> = [:]
-    private var jYearNameMap : Dictionary<Int, String> = [:]
     
     init(display displayYear:Int, from fromYear:Int, to toYear:Int){
         self.displayYear = displayYear
@@ -39,11 +38,9 @@ class FamilyLine{
         for currentYear in self.fromYear...self.toYear {
             if heisei.isMyEra(year:currentYear){
                 self.jYearFullMap[currentYear] = heisei.getJYearFull(year:currentYear)
-                self.jYearNameMap[currentYear] = heisei.getJYearName()
             }
             if syowa.isMyEra(year:currentYear){
                 self.jYearFullMap[currentYear] = syowa.getJYearFull(year:currentYear)
-                self.jYearNameMap[currentYear] = syowa.getJYearName()
             }
         }
 
@@ -73,20 +70,22 @@ class FamilyLine{
         return list
     }
     
-	public func getJYearFullMap() -> Dictionary<Int, String>{
-        return self.jYearFullMap
-	}
-
-    public func getJYearNameMap() -> Dictionary<Int, String>{
-        return self.jYearNameMap
-    }
-
     public func getDisplayJYearFull() -> String{
         return self.jYearFullMap[self.displayYear] ?? ""
     }
     
     public func getDisplayJYearName() -> String{
-        return self.jYearNameMap[self.displayYear] ?? ""
+
+        //表示する西暦が該当する年号を一つだけ返す。
+        //新しい年号が優先。
+        if heisei.isMyEra(year:self.displayYear){
+            return heisei.getJYearName()
+        }
+        if syowa.isMyEra(year:self.displayYear){
+            return syowa.getJYearName()
+        }
+
+        return ""
     }
 
     public func getDisplayYearFull() -> String{
