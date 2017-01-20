@@ -45,7 +45,19 @@ router.get("/") { request, response, next in
     
     let familyLine = FamilyLine(display:displayYear, from:DateUtil.HEAD_OF_20TH_CENTURY,to:thisYear)
     
-    let displayJYearFull = familyLine.getDisplayJYearFull()
+    let list = familyLine.getDisplayJYearFull()
+    var displayJYearFull = ""
+    var displayJYearOptions = [String]()
+    
+    for (index, element) in list.enumerated() {
+        if index == 0 {
+            displayJYearFull = element
+        }else{
+            //2行目以降に表示したい和暦を配列に再格納。
+            displayJYearOptions.append(element)
+        }
+    }
+
     let displayJYearName = familyLine.getDisplayJYearName()
     let displayYearFull  = familyLine.getDisplayYearFull()
     let jYearList = familyLine.getJYearListDesc()
@@ -59,6 +71,7 @@ router.get("/") { request, response, next in
         ,"jYearList": jYearList
         ,"htmlTitle": htmlTitle
         ,"hostname": request.hostname.lowercased()
+        ,"displayJYearOptions":displayJYearOptions
     ]
 
     var viewTemplate = "home.stencil"

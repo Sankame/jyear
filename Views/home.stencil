@@ -54,8 +54,11 @@
 							<!-- <span class="avatar"><img src="images/avatar.jpg" alt="" /></span> -->
 							<p class="jfont-1x">
                                 <font color="dark-orange" class="jfont-3x">{{thisJYearFull}}年</font>
+                                {% for jYear in displayJYearOptions %}
+                                <br><font color="dark-orange">({{jYear}}年)</font>
+                                {% endfor %}
 							</p>
-						</header>
+                        </header>
 						<!--
 						<hr />
 						<h2>Extra Stuff!</h2>

@@ -25,13 +25,20 @@
 
     <body>
         <h1>{{displayYearFull}}は{{thisJYearName}}何年？</h1>
-        <p class="jyear">{{thisJYearFull}}年</p>
+        <p class="jyear">
+            {{thisJYearFull}}年
+            {% for jYear in displayJYearOptions %}
+                <br>({{jYear}}年)
+            {% endfor %}
+        </p>
 
         <h2>[和暦・西暦　早見表]</h2>
         <div>
         <table>
         {% for row in jYearList %}
-        <tr><td>{{ row.jYear }}年</td><td>&nbsp;</td><td>{{ row.year }}年</td></tr>
+        <tr>
+        <td><a href="/?year={{row.year}}">{{ row.jYear }}年&nbsp;{{ row.year }}年</a></td>
+        </tr>
         {% endfor %}
         </table>
         </div>

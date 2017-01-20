@@ -70,8 +70,18 @@ class FamilyLine{
         return list
     }
     
-    public func getDisplayJYearFull() -> String{
-        return self.jYearFullMap[self.displayYear] ?? ""
+    public func getDisplayJYearFull() -> Array<String>{
+
+        var listOfJYear = [String]()
+        //表示する西暦が該当する年号を複数返す。
+        //新しい年号が優先。
+        if heisei.isMyEra(year:self.displayYear){
+            listOfJYear.append(heisei.getJYearFull(year:self.displayYear))
+        }
+        if syowa.isMyEra(year:self.displayYear){
+            listOfJYear.append(syowa.getJYearFull(year:self.displayYear))
+        }
+        return listOfJYear
     }
     
     public func getDisplayJYearName() -> String{
