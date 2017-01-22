@@ -20,7 +20,7 @@ router.all("/", middleware: StaticFileServer(path: "./Views/Public"))
 //Handle HTTP GET requests to Stencil
 router.get("/") { request, response, next in
     //これでドメインは取れる。ローカルならjyear.localになる。
-    Log.logger = HeliumLogger()
+//    Log.logger = HeliumLogger()
     
     let qsYear = request.queryParameters["year"] ?? ""
 

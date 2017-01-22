@@ -6,7 +6,7 @@
 -->
 <html lang="ja">
 	<head>
-		<title>{{displayYearFull}}は{{thisJYearName}}何年？(季節の画像付き)</title>
+		<title>{{displayYearFull}}は{{thisJYearName}}何年？(季節の風景とともに)</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="robots" content="noarchive">
