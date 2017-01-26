@@ -72,6 +72,7 @@ router.get("/") { request, response, next in
         ,"htmlTitle": htmlTitle
         ,"hostname": request.hostname.lowercased()
         ,"displayJYearOptions":displayJYearOptions
+        ,"animalName": OrientalZodiac.getAnimalName(year:displayYear)
     ]
 
     var viewTemplate = "home.stencil"

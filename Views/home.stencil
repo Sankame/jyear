@@ -57,6 +57,7 @@
                                 {% for jYear in displayJYearOptions %}
                                 <br><font color="dark-orange">({{jYear}}年)</font>
                                 {% endfor %}
+                                <br><font color="dark-orange"><{{animalName}}年></font>
 							</p>
                         </header>
 						<!--
