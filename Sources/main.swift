@@ -89,7 +89,9 @@ router.get("/cal") { request, response, next in
     }
 
     var context:Dictionary<String,Any> = [
-        "hoge" : ""
+        "appName" : "シンプルカレンダー"
+        ,"baseUrl" : "https://jyear.net/cal"
+        ,"assetsPath" : "/cal"
     ]
 
     var viewTemplate = "cal.stencil"

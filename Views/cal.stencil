@@ -4,36 +4,36 @@
 <head>
 <meta charset="utf-8" />
 
-<title>News Float</title>
+<title>{{appName}}</title>
 
 <meta name="description" content="Webメディアのトップニュース情報を毎日お届けします。">
 <meta name="keywords" content="Webメディア,トップニュース,ヘッドラインニュース,ニュース,最新ニュース,話題のニュース">
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<!--[if lt IE 9]><script src="http://newsfloat.net/static/js/html5.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="{{assetsPath}}/js/html5.js"></script><![endif]-->
 
-<meta property="og:title" content="News Float" />
+<meta property="og:title" content="{{appName}}" />
 <meta property="og:type" content="website" />
 <meta property="og:description" content="各Webメディアのトップニュースへのリンクを毎日お届けします。" />
-<meta property="og:url" content="http://newsfloat.net/" />
+<meta property="og:url" content="{{baseUrl}}" />
 <meta property="og:image" content="" />
-<meta property="og:site_name" content="News Float" />
+<meta property="og:site_name" content="{{appName}}" />
 <meta property="og:locale" content="ja_JP" />
 
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 
-<link rel="stylesheet" href="http://newsfloat.net/static/css/site.css">
-<link rel="stylesheet" href="http://newsfloat.net/static/css/prettify.css">
-<link rel="stylesheet" href="http://newsfloat.net/static/css/font-awesome.css">
+<link rel="stylesheet" href="{{assetsPath}}/css/site.css">
+<link rel="stylesheet" href="{{assetsPath}}/css/prettify.css">
+<link rel="stylesheet" href="{{assetsPath}}/css/font-awesome.css">
 
-<link rel="stylesheet" href="http://newsfloat.net/static/css/style.css" />
-<link rel="stylesheet" href="http://newsfloat.net/static/css/colorbox.css" />
+<link rel="stylesheet" href="{{assetsPath}}/css/style.css" />
+<link rel="stylesheet" href="{{assetsPath}}/css/colorbox.css" />
 <link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/redmond/jquery-ui.css" rel="stylesheet" />
-<!-- <link type="text/css" href="http://newsfloat.net/static/css/jqueryui/1/themes/redmond/jquery-ui.css" rel="stylesheet" /> -->
+<!-- <link type="text/css" href="{{assetsPath}}/css/jqueryui/1/themes/redmond/jquery-ui.css" rel="stylesheet" /> -->
 <!--[if IE 7]>
-<link rel="stylesheet" href="http://newsfloat.net/static/css/font-awesome-ie7.min.css">
+<link rel="stylesheet" href="{{assetsPath}}/css/font-awesome-ie7.min.css">
 <![endif]-->
 
 <!-- scripts at bottom of page -->
@@ -45,22 +45,16 @@ height: 100.5%;
 }
 .box h3 {
 font-size: 12px;
-/*font-weight: 200;*/
 font-weight: bold;
 }
 .box a {
-/*color: #191970;*/
-/*color: #393990;*/
-/*color: #000080;*/
 color: #4682B4;
 
 font-weight: bold;
 text-decoration: underline;
 }
 .box a:hover {
-/*color: #DD2266;*/
 color: #FF4500;
-
 font-weight: bold;
 text-decoration: none;
 }
@@ -76,58 +70,28 @@ width: 128px;
 padding: 10px 10px 10px 160px;
 }
 .box {
-/*background: none repeat scroll 0 0 #f0f0f0;*/
 background: none repeat scroll 0 0 #ffffff;
 border-radius: 5px 5px 5px 5px;
 float: left;
-/*color: #000000;*/
-/*color: #ffffff;*/
 color:#00084C;
 font-size: 11.5px;
-/*font-size: 11px;*\
 
 line-height: 1.4em;
 margin: 5px;
 padding: 5px;
-/*
-border-style:outset;
-border-width:1px;
-border-color:white;
-*/
 border-style:outset;
 }
 body {
 background: none repeat scroll 0 0 #FFFFFF;
 color: #333333;
-/*color: #FFFFFF;*/
 font: 13px/1.6em 'Helvetica Neue',Arial,sans-serif;
 }
 
 #container {
-/*background: none repeat scroll 0 0 #444444;*/
-/*
-background-image: -moz-linear-gradient(top, #1E90FF, #B0E0E6);
-background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#1E90FF), to(#B0E0E6));
-background-image: -webkit-linear-gradient(top, #1E90FF, #B0E0E6);
-background-image: -o-linear-gradient(top, #1E90FF, #B0E0E6);
-background-image: linear-gradient(to bottom, #1E90FF, #B0E0E6);
-background-repeat: repeat-x;
-outline: 0;
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1E90FF', endColorstr='#ffB0E0E6', GradientType=0);
-border-radius: 5px 5px 5px 5px;
-clear: both;
-margin-bottom: 20px;
-padding: 5px;
-*/
-}
-#container {
-/*background: none repeat scroll 0 0 #444444;*/
 background-image: -moz-linear-gradient(top, #191970, #4Ec0FF);
 background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#191970), to(#4Ec0FF));
 background-image: -webkit-linear-gradient(top, #191970, #4Ec0FF);
 background-image: -o-linear-gradient(top, #191970, #4Ec0FF);
-/** check */
-/*background-image: linear-gradient(to bottom, #9999a0, #4Ec0FF);*/
 background-image: linear-gradient(to bottom, #191970, #4Ec0FF);
 background-repeat: repeat-x;
 outline: 0;
@@ -165,22 +129,16 @@ color: #4682B4;
 font-weight: bold;
 text-decoration: underline;
 }
-/* colorbox overlay */
+
 #cboxOverlay {
-/*background: none repeat scroll 0 0 #B0E0E6;*/
-/*background: none repeat scroll 0 0 #ffffff;*/
-/*background: none repeat scroll 0 0 #a9a9f0;*/
-/*background: none repeat scroll 0 0 #F0F8FF;*/
 background: none repeat scroll 0 0 #F0F8EF;
 }
 li.checked{
-/*background-color: #ffffab;*/
 color:#FF4500;
 font-weight: bold;
 }
 
 .ui-widget {
-/* font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;*/
 font-family: 'Helvetica Neue',Arial,sans-serif;
 font-size: 9px;
 }
@@ -212,7 +170,7 @@ font-size: 14px;
 #space1{
 height:10px;
 }
-{* font-awesomeのclassを上書きする。 *}
+
 footer {
 background-color: #FFFFFF;
 border-top: 1px solid #872119;
@@ -240,7 +198,7 @@ clear: both;
 margin-bottom: 5px;
 outline: 0 none;
 padding: 5px;
-width: 200px;
+width: 250px;
 text-align:center;
 font-family: museo-slab,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
@@ -267,7 +225,6 @@ margin-bottom: 5px;
 position: fixed;
 bottom: 20px;
 right: 20px;
-/* font-size: 77%; */
 
 filter:alpha(opacity=80);
 -moz-opacity: 0.8;
@@ -324,25 +281,6 @@ width: 255px;
 opacity: 0.5;
 }
 
-/* 今日のキーワード */
-div.scrollable { position:relative; overflow:hidden; width: 135px; height:134px; padding:0px 0; border:0px outset #ccc; background-color:#ffffff; }
-div.scrollable div.items { width:20000em; position:absolute; clear:both; margin-left:0px; }
-div.scrollable div.items div { float:left; text-align:left; width:110px; padding:0px 0px; font-size:30px; font-family: 'bitstream vera sans'; border:0px outset #ccc; background-color: #ffffff; margin-right: 20px; -moz-border-radius:5px; }
-div.scrollable div.items div.active { border:1px inset #ccc; background-color:#fff; }
-div.scrollable { float:left; }
-a.prev, a.prevPage { display:block; width:18px; height:25px; float:left; margin:1px ; cursor:pointer; }
-a.stop { display:block; width:5px; height:25px; float:left; margin:1px 25px; cursor:pointer; }
-a.play { display:block; width:5px; height:25px; float:left; margin:1px 0px; cursor:pointer; }
-a.next, a.nextPage { display:block; width:8px; height:25px; float:right; margin:1px ; cursor:pointer; }
-a.prev:hover, a.next:hover, a.prevPage:hover, a.nextPage:hover { background-position:0px -18px; }
-a.disabled { visibility:hidden !important; }
-a.next, a.nextPage { background-image:url(right.png); clear:right; }
-div.navi { margin-left:328px; width:200px; height:20px; }
-div.navi a { width:8px; height:8px; float:left; margin:3px; background:url(navigator.png) 0 0 no-repeat; display:block; font-size:1px; }
-div.navi a:hover { background-position:0 -8px; }
-div.navi a.active { background-position:0 -16px; }
-/* 今日のキーワード */
-
 h1, h2 {
 font-weight: 100;
 line-height: 1.2em;
@@ -376,223 +314,17 @@ font.publish-date-emphasis{
 color: #FF4500;
 }
 </style>
-
-<script type="text/javascript">
-
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-39556808-1']);
-_gaq.push(['_trackPageview']);
-
-(function() {
-var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
-
-</script>
-
-
-
 </head>
 <body >
 
-
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
-var js, fjs = d.getElementsByTagName(s)[0];
-if (d.getElementById(id)) return;
-js = d.createElement(s); js.id = id;
-js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1";
-fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
 
-
-<form action="http://newsfloat.net/" method="post">
-
-<div class="social-area" id="social-area" style="position: absolute; top: 90px; left: 0px; width: 80px;">
-<nav id="site-nav">
-<h2 class="emph">
-<div id="menu-header" class="todays-keyword">
-今日のキーワード
-</div>
-</h2>
-
-<div class="scrollable">
-<div class="items">
-</div>
-</div>
-
-<div>
-<a class="prev" href="javascript:void(0);"><i class="icon-step-backward"></i></a>
-<a class="stop" href="javascript:api.stop();"><i class="icon-stop"></i></a>
-<a class="play" href="javascript:api.play();"><i class="icon-play"></i></a>
-<a class="next" href="javascript:void(0);"><i class="icon-step-forward"></i></a>
-</div>
-
-<h2 class="emph">
-<div id="menu-header">
-<i class="icon-check" id="check-all" style="cursor:pointer;"></i>&nbsp;メディア
-</div>
-</h2>
-
-<div id="site-list">
-
-<ul id="menu">
-<li>
-<div class="archive">
-<a class="menu-slider" href="javascript:void(0);"
-onmouseout="javascript:lightOff(this);" onmouseover="javascript:lightOn(this);">
-</a>
-</div>
-<ul class="demos-list subMenu">
-<li class="checked" onmouseover='javascript:lightOn(this);' onmouseout='javascript:lightOff(this);'>
-<label>
-<input type="checkbox" name="site_name[]" value="BLOGOS" style="height:20px;" checked>
-BLOGOS
-</label>
-</li>
-<input type="hidden" name="hidden-checked-sitename" value="BLOGOS">
-<li class="checked" onmouseover='javascript:lightOn(this);' onmouseout='javascript:lightOff(this);'>
-<label>
-<input type="checkbox" name="site_name[]" value="YAHOO" style="height:20px;" checked>
-YAHOO
-</label>
-</li>
-<input type="hidden" name="hidden-checked-sitename" value="YAHOO">
-<li class="checked" onmouseover='javascript:lightOn(this);' onmouseout='javascript:lightOff(this);'>
-<label>
-<input type="checkbox" name="site_name[]" value="毎日jp" style="height:20px;" checked>
-毎日jp
-</label>
-</li>
-<input type="hidden" name="hidden-checked-sitename" value="毎日jp">
-<li class="checked" onmouseover='javascript:lightOn(this);' onmouseout='javascript:lightOff(this);'>
-<label>
-<input type="checkbox" name="site_name[]" value="JCAST" style="height:20px;" checked>
-JCAST
-</label>
-</li>
-<input type="hidden" name="hidden-checked-sitename" value="JCAST">
-<li class="checked" onmouseover='javascript:lightOn(this);' onmouseout='javascript:lightOff(this);'>
-<label>
-<input type="checkbox" name="site_name[]" value="excite" style="height:20px;" checked>
-excite
-</label>
-</li>
-<input type="hidden" name="hidden-checked-sitename" value="excite">
-<li class="checked" onmouseover='javascript:lightOn(this);' onmouseout='javascript:lightOff(this);'>
-<label>
-<input type="checkbox" name="site_name[]" value="livedoor" style="height:20px;" checked>
-livedoor
-</label>
-</li>
-<input type="hidden" name="hidden-checked-sitename" value="livedoor">
-<li class="checked" onmouseover='javascript:lightOn(this);' onmouseout='javascript:lightOff(this);'>
-<label>
-<input type="checkbox" name="site_name[]" value="REUTERS" style="height:20px;" checked>
-REUTERS
-</label>
-</li>
-<input type="hidden" name="hidden-checked-sitename" value="REUTERS">
-<li class="checked" onmouseover='javascript:lightOn(this);' onmouseout='javascript:lightOff(this);'>
-<label>
-<input type="checkbox" name="site_name[]" value="@nifty" style="height:20px;" checked>
-@nifty
-</label>
-</li>
-<input type="hidden" name="hidden-checked-sitename" value="@nifty">
-<li class="checked" onmouseover='javascript:lightOn(this);' onmouseout='javascript:lightOff(this);'>
-<label>
-<input type="checkbox" name="site_name[]" value="goo" style="height:20px;" checked>
-goo
-</label>
-</li>
-<input type="hidden" name="hidden-checked-sitename" value="goo">
-<li class="checked" onmouseover='javascript:lightOn(this);' onmouseout='javascript:lightOff(this);'>
-<label>
-<input type="checkbox" name="site_name[]" value="Infoseek" style="height:20px;" checked>
-Infoseek
-</label>
-</li>
-<input type="hidden" name="hidden-checked-sitename" value="Infoseek">
-
-<li><a class="btn btn-small" href="javascript:searchNews();"><i class="icon-filter"></i> フィルター</a></li>
-</ul>
-</li>
-</ul>
-
-</div>
-
-<div id="space1"></div>
-
-<h2 class="emph"><div id="menu-header">共有する</div></h2>
-<ul>
-<li class="sns-button">
-<a href="https://twitter.com/share" class="twitter-share-button" data-lang="ja">ツイート</a>
-
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-</li>
-<li class="sns-button">
-<div class="fb-like" data-href="http://newsfloat.net/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
-</li>
-<li class="sns-button">
-
-<!-- Place this tag where you want the +1 button to render. -->
-<div class="g-plusone" data-size="medium"></div>
-
-<!-- Place this tag after the last +1 button tag. -->
-<script type="text/javascript">
-window.___gcfg = {lang: 'ja'};
-
-(function() {
-var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-po.src = 'https://apis.google.com/js/plusone.js';
-var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-})();
-</script>
-
-</li>
-<li class="sns-button">
-<a href="http://b.hatena.ne.jp/entry/http://newsfloat.net/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard-balloon" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
-
-<script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
-
-</li>
-</ul>
-
-</nav> <!-- #site-nav -->
-</div>
+<form action="{{baseUrl}}" method="post">
 
 <section id="content">
-<h2 class="emph"><div id="title-bar"><a class="app-name" href="http://newsfloat.net/">News Float</a></div></h2>
-
-<div id="copy">
-<span style="float:left;margin-top:5px;">日々のトップニュースをお届けします</span>
-<span style="float:right;">
-<div class="input-prepend">
-<span class="btn search-word-remove" onclick="javascript:removeKeyword();">
-<i class="icon-remove"></i>
-</span>
-<input type="text" id="search-by-keyword" class="span2" style="margin-right:5px;" value="">
-
-<a href="javascript:searchByKeyword();" class="btn btn-primary"><i class="icon-search"></i> 検索</a>
-</div>
-</span>
-</div>
+<h2 class="emph"><div id="title-bar"><a class="app-name" href="{{baseUrl}}">{{appName}}</a></div></h2>
 
 <div style="margin-top:35px;">
-
-<div>
-<a onmouseover="javascript:lightOn(this);" onmouseout="javascript:lightOff(this);" href="javascript:void(0);" class="menu-slider showWikipedia" style="background-color: rgb(255, 255, 255);">
-<i class="icon-caret-right"></i> wikipedia open
-</a>
-</div>
-
-<ul class="wikipedia" style="display: none;">
-<li></li>
-</ul>
-
 <div>
 <div id="container" class="transitions-enabled infinite-scroll clearfix" >
 
@@ -601,100 +333,11 @@ style="background-color:#ffffff;"
 onmouseover="javascript:lightOn(this);"
 onmouseout="javascript:lightOff(this);">
 <h3>
-<a href="http://www.j-cast.com/2015/02/19228317.html" class="fits iframe" title="橋下氏が週刊朝日と和解　大阪地裁">
-<a href="http://www.j-cast.com/2015/02/19228317.html" class="iframe" title="橋下氏が週刊朝日と和解　大阪地裁">橋下氏が週刊朝日と和解　大阪地裁</a>
-
-
-</a>
+1月
 </h3>
-
-<p><q class="quote">      &nbsp;&nbsp;&nbsp;週刊朝日が掲載したノンフィクション作家の佐野眞一氏ら…</q></p>
-<p>出典：JCAST<br>掲載日：<font >2015/02/20</font></p>
-</div>
-
-<div class="box col2"
-style="background-color:#ffffff;"
-onmouseover="javascript:lightOn(this);"
-onmouseout="javascript:lightOff(this);">
-<h3>
-<a href="http://news.goo.ne.jp/photo/kyodo/sports/PN2015021901002056.html" class="fits iframe" title="ボクシング女子、小関はＫＯ勝ち">
-<a href="http://news.goo.ne.jp/photo/kyodo/sports/PN2015021901002056.html" class="iframe" title="ボクシング女子、小関はＫＯ勝ち">ボクシング女子、小関はＫＯ勝ち</a>
-
-</a>
-</h3>
-
-<p><q class="quote">…</q></p>
-<p>出典：goo<br>掲載日：<font >2015/02/20</font></p>
-</div>
-
-<div class="box col2"
-style="background-color:#ffffff;"
-onmouseover="javascript:lightOn(this);"
-onmouseout="javascript:lightOff(this);">
-<h3>
-<a href="http://news.nifty.com//cs/entame/showbizddetail/kyodo-2015021901002019/1.htm" class="fits iframe" title="「マッサン」スタジオ撮影が終了(共同)">
-<a href="http://news.nifty.com//cs/entame/showbizddetail/kyodo-2015021901002019/1.htm" class="iframe" title="「マッサン」スタジオ撮影が終了(共同)">「マッサン」スタジオ撮影が終了(共同)</a>
-
-<img class="fixed-image" src="http://www.nifty.com/cms_image/niftop/topicImage2/150219913520/thumb-kyodo-2015021901002019-entame.jpg">
-</a>
-</h3>
-
-<p><q class="quote">  								　ＮＨＫ連続テレビ小説「マッサン」が１９日、ＮＨＫ大阪放送局（大阪市中央区）での…</q></p>
-<p>出典：@nifty<br>掲載日：<font >2015/02/20</font></p>
-</div>
-
-<div class="box col2"
-style="background-color:#ffffff;"
-onmouseover="javascript:lightOn(this);"
-onmouseout="javascript:lightOff(this);">
-<h3>
-<a href="http://jp.reuters.com//article/topNews/idJPKBN0LN1HR20150219" class="fits iframe" title="ギリシャが6カ月の融資延長申請、破綻回避へ歩み寄り">
-<a href="http://jp.reuters.com//article/topNews/idJPKBN0LN1HR20150219" class="iframe" title="ギリシャが6カ月の融資延長申請、破綻回避へ歩み寄り">ギリシャが6カ月の融資延長申請、破綻回避へ歩み寄り</a>
-
-<img class="fixed-image" src="http://s2.reutersmedia.net/resources/r/?m=02&amp;d=20150219&amp;t=2&amp;i=1026300796&amp;w=98&amp;fh=&amp;fw=&amp;ll=&amp;pl=&amp;r=LYNXMPEB1I0KE" border="0" alt="Photo">
-</a>
-</h3>
-
-<p><q class="quote">
-
-
-
-
-
-［アテネ／ブリュッセル　１９日　ロイター］ - ギリシャ…</q></p>
-<p>出典：REUTERS<br>掲載日：<font >2015/02/20</font></p>
-</div>
-
-<div class="box col2"
-style="background-color:#ffffff;"
-onmouseover="javascript:lightOn(this);"
-onmouseout="javascript:lightOff(this);">
-<h3>
-<a href="" class="fits iframe" title="涙のクランクアップ">
-<a href="" class="iframe" title="涙のクランクアップ">涙のクランクアップ</a>
-
-<img class="fixed-image" src="http://lpt.c.yimg.jp/im_sigglh9AQi7qdWTeeKnLu9Rr4A---x120-y120/amd/20150219-00000090-nksports-000-view.jpg">
-</a>
-</h3>
-
-<p><q class="quote">…</q></p>
-<p>出典：YAHOO<br>掲載日：<font >2015/02/20</font></p>
-</div>
-
-<div class="box col2"
-style="background-color:#ffffff;"
-onmouseover="javascript:lightOn(this);"
-onmouseout="javascript:lightOff(this);">
-<h3>
-<a href="http://www.j-cast.com/2015/02/19228316.html" class="fits iframe" title="TBS「水曜日のダウンタウン」また謝罪　ブックオフの福袋「買うヤツはどうかしてる」と表現">
-<a href="http://www.j-cast.com/2015/02/19228316.html" class="iframe" title="TBS「水曜日のダウンタウン」また謝罪　ブックオフの福袋「買うヤツはどうかしてる」と表現">TBS「水曜日のダウンタウン」また謝罪　ブックオフの福袋「買うヤツはどうかしてる」と表現</a>
-
-
-</a>
-</h3>
-
-<p><q class="quote">      &nbsp;&nbsp;&nbsp;TBSはバラエティー番組「水曜日のダウンタウン」で誤…</q></p>
-<p>出典：JCAST<br>掲載日：<font >2015/02/20</font></p>
+xxxxxxxxxx<br>
+xxxxxxxxxx<br>
+xxxxxxxxxx<br>
 </div>
 
 <div class="box col3"
@@ -702,17 +345,11 @@ style="background-color:#ffffff;"
 onmouseover="javascript:lightOn(this);"
 onmouseout="javascript:lightOff(this);">
 <h3>
-<a href="http://news.goo.ne.jp/article/jiji/nation/jiji-150219X313.html" class="fits iframe" title="リベンジポルノ防止法で初の検挙">
-<a href="http://news.goo.ne.jp/article/jiji/nation/jiji-150219X313.html" class="iframe" title="リベンジポルノ防止法で初の検挙">リベンジポルノ防止法で初の検挙</a>
-
-</a>
+1月
 </h3>
-
-<p><q class="quote">
-
-
-　知人女性の裸の写真をばらまいたとして、福島県警郡山北署などは１９日、リベンジポルノ防止法違反…</q></p>
-<p>出典：goo<br>掲載日：<font >2015/02/20</font></p>
+xxxxxxxxxx<br>
+xxxxxxxxxx<br>
+xxxxxxxxxx<br>
 </div>
 
 <div class="box col3"
@@ -720,37 +357,11 @@ style="background-color:#ffffff;"
 onmouseover="javascript:lightOn(this);"
 onmouseout="javascript:lightOff(this);">
 <h3>
-<a href="http://news.nifty.com//cs/domestic/governmentdetail/jiji-2015021900808/1.htm" class="fits iframe" title=""テロ政党"自民山田氏が謝罪">
-<a href="http://news.nifty.com//cs/domestic/governmentdetail/jiji-2015021900808/1.htm" class="iframe" title=""テロ政党"自民山田氏が謝罪">"テロ政党"自民山田氏が謝罪</a>
-
-
-</a>
+1月
 </h3>
-
-<p><q class="quote">  								　共産党の志位和夫委員長が１７日の衆院本会議の代表質問で、過激派組織「イスラム国…</q></p>
-<p>出典：@nifty<br>掲載日：<font >2015/02/20</font></p>
-</div>
-
-<div class="box col2"
-style="background-color:#ffffff;"
-onmouseover="javascript:lightOn(this);"
-onmouseout="javascript:lightOff(this);">
-<h3>
-<a href="http://jp.reuters.com//article/topNews/idJPKBN0LN1GC20150219" class="fits iframe" title="米国株横ばい、ギリシャ先行き不透明感">
-<a href="http://jp.reuters.com//article/topNews/idJPKBN0LN1GC20150219" class="iframe" title="米国株横ばい、ギリシャ先行き不透明感">米国株横ばい、ギリシャ先行き不透明感</a>
-
-
-</a>
-</h3>
-
-<p><q class="quote">
-
-
-
-
-
-［ニューヨーク　１９日　ロイター］ - １９日の米国株式…</q></p>
-<p>出典：REUTERS<br>掲載日：<font >2015/02/20</font></p>
+xxxxxxxxxx<br>
+xxxxxxxxxx<br>
+xxxxxxxxxx<br>
 </div>
 
 <div class="box col3"
@@ -758,15 +369,11 @@ style="background-color:#ffffff;"
 onmouseover="javascript:lightOn(this);"
 onmouseout="javascript:lightOff(this);">
 <h3>
-<a href="" class="fits iframe" title="安保法制 恒久法の原案提示">
-<a href="" class="iframe" title="安保法制 恒久法の原案提示">安保法制 恒久法の原案提示</a>
-
-
-</a>
+1月
 </h3>
-
-<p><q class="quote">…</q></p>
-<p>出典：YAHOO<br>掲載日：<font >2015/02/20</font></p>
+xxxxxxxxxx<br>
+xxxxxxxxxx<br>
+xxxxxxxxxx<br>
 </div>
 
 <div class="box col3"
@@ -774,15 +381,11 @@ style="background-color:#ffffff;"
 onmouseover="javascript:lightOn(this);"
 onmouseout="javascript:lightOff(this);">
 <h3>
-<a href="http://www.j-cast.com/2015/02/19228289.html" class="fits iframe" title="「ハズレ馬券は経費」判決が確定へ">
-<a href="http://www.j-cast.com/2015/02/19228289.html" class="iframe" title="「ハズレ馬券は経費」判決が確定へ">「ハズレ馬券は経費」判決が確定へ</a>
-
-
-</a>
+1月
 </h3>
-
-<p><q class="quote">      &nbsp;&nbsp;&nbsp;馬券を購入して配当で得た所得約29億円を申告しなかっ…</q></p>
-<p>出典：JCAST<br>掲載日：<font >2015/02/20</font></p>
+xxxxxxxxxx<br>
+xxxxxxxxxx<br>
+xxxxxxxxxx<br>
 </div>
 
 <div class="box col3"
@@ -790,160 +393,13 @@ style="background-color:#ffffff;"
 onmouseover="javascript:lightOn(this);"
 onmouseout="javascript:lightOff(this);">
 <h3>
-<a href="http://news.goo.ne.jp/article/sankei/nation/sankei-afr1502190032.html" class="fits iframe" title="鎮静剤男児死亡　傷害致死で告訴">
-<a href="http://news.goo.ne.jp/article/sankei/nation/sankei-afr1502190032.html" class="iframe" title="鎮静剤男児死亡　傷害致死で告訴">鎮静剤男児死亡　傷害致死で告訴</a>
-
-</a>
+1月
 </h3>
-
-<p><q class="quote">
-
-
-　東京女子医大病院（東京都新宿区）で平成２６年２月、男児＝当時（２）＝が手術後に鎮静剤「プロポ…</q></p>
-<p>出典：goo<br>掲載日：<font >2015/02/20</font></p>
+xxxxxxxxxx<br>
+xxxxxxxxxx<br>
+xxxxxxxxxx<br>
 </div>
 
-<div class="box col2"
-style="background-color:#ffffff;"
-onmouseover="javascript:lightOn(this);"
-onmouseout="javascript:lightOff(this);">
-<h3>
-<a href="http://news.nifty.com//cs/headline/detail/jiji-2015021900789/1.htm" class="fits iframe" title="傷害致死で遺族が医師ら告訴">
-<a href="http://news.nifty.com//cs/headline/detail/jiji-2015021900789/1.htm" class="iframe" title="傷害致死で遺族が医師ら告訴">傷害致死で遺族が医師ら告訴</a>
-
-
-</a>
-</h3>
-
-<p><q class="quote">  								　東京女子医大病院（東京都新宿区）で昨年２月、集中治療室（ＩＣＵ）で人工呼吸中に…</q></p>
-<p>出典：@nifty<br>掲載日：<font >2015/02/20</font></p>
-</div>
-
-<div class="box col2"
-style="background-color:#ffffff;"
-onmouseover="javascript:lightOn(this);"
-onmouseout="javascript:lightOff(this);">
-<h3>
-<a href="http://jp.reuters.com//article/topNews/idJPKBN0LN1G220150219" class="fits iframe" title="ギリシャの融資延長要請、ドイツが難色">
-<a href="http://jp.reuters.com//article/topNews/idJPKBN0LN1G220150219" class="iframe" title="ギリシャの融資延長要請、ドイツが難色">ギリシャの融資延長要請、ドイツが難色</a>
-
-
-</a>
-</h3>
-
-<p><q class="quote">
-
-
-
-
-
-［ベルリン　１９日　ロイター］ - ギリシャがユーロ圏に…</q></p>
-<p>出典：REUTERS<br>掲載日：<font >2015/02/20</font></p>
-</div>
-
-<div class="box col2"
-style="background-color:#ffffff;"
-onmouseover="javascript:lightOn(this);"
-onmouseout="javascript:lightOff(this);">
-<h3>
-<a href="" class="fits iframe" title="首相がヤジ 自民委員長が注意">
-<a href="" class="iframe" title="首相がヤジ 自民委員長が注意">首相がヤジ 自民委員長が注意</a>
-
-
-</a>
-</h3>
-
-<p><q class="quote">…</q></p>
-<p>出典：YAHOO<br>掲載日：<font >2015/02/20</font></p>
-</div>
-
-<div class="box col2"
-style="background-color:#ffffff;"
-onmouseover="javascript:lightOn(this);"
-onmouseout="javascript:lightOff(this);">
-<h3>
-<a href="http://www.j-cast.com/2015/02/19228288.html" class="fits iframe" title="訪日外国人旅行者、1月としては過去最多の121万人">
-<a href="http://www.j-cast.com/2015/02/19228288.html" class="iframe" title="訪日外国人旅行者、1月としては過去最多の121万人">訪日外国人旅行者、1月としては過去最多の121万人</a>
-
-
-</a>
-</h3>
-
-<p><q class="quote">      &nbsp;&nbsp;&nbsp;2015年1月に日本を訪れた外国人旅行者数が、前年同…</q></p>
-<p>出典：JCAST<br>掲載日：<font >2015/02/20</font></p>
-</div>
-
-<div class="box col2"
-style="background-color:#ffffff;"
-onmouseover="javascript:lightOn(this);"
-onmouseout="javascript:lightOff(this);">
-<h3>
-<a href="http://news.goo.ne.jp/article/mainichi/nation/mainichi-20150220k0000m040079000c.html" class="fits iframe" title="サリンまくと聞かず…中川死刑囚">
-<a href="http://news.goo.ne.jp/article/mainichi/nation/mainichi-20150220k0000m040079000c.html" class="iframe" title="サリンまくと聞かず…中川死刑囚">サリンまくと聞かず…中川死刑囚</a>
-
-</a>
-</h3>
-
-<p><q class="quote">
-
-
-　オウム真理教元信者、高橋克也被告（５６）の裁判員裁判が１９日、東京地裁（中里智美裁判長）であ…</q></p>
-<p>出典：goo<br>掲載日：<font >2015/02/20</font></p>
-</div>
-
-<div class="box col2"
-style="background-color:#ffffff;"
-onmouseover="javascript:lightOn(this);"
-onmouseout="javascript:lightOff(this);">
-<h3>
-<a href="http://news.nifty.com//cs/headline/detail/kyodo-2015021901002142/1.htm" class="fits iframe" title="指紋酷似の男性にアリバイかNEW ">
-<a href="http://news.nifty.com//cs/headline/detail/kyodo-2015021901002142/1.htm" class="iframe" title="指紋酷似の男性にアリバイかNEW ">指紋酷似の男性にアリバイかNEW </a>
-
-
-</a>
-</h3>
-
-<p><q class="quote">  								　１９９５年７月に東京都八王子市のスーパー「ナンペイ大和田店」（当時）で起きた女…</q></p>
-<p>出典：@nifty<br>掲載日：<font >2015/02/20</font></p>
-</div>
-
-<div class="box col3"
-style="background-color:#ffffff;"
-onmouseover="javascript:lightOn(this);"
-onmouseout="javascript:lightOff(this);">
-<h3>
-<a href="http://jp.reuters.com//article/topNews/idJPKBN0LN0NU20150219" class="fits iframe" title="ＨＩＳとオリックス、スカイマーク支援の意向">
-<a href="http://jp.reuters.com//article/topNews/idJPKBN0LN0NU20150219" class="iframe" title="ＨＩＳとオリックス、スカイマーク支援の意向">ＨＩＳとオリックス、スカイマーク支援の意向</a>
-
-
-</a>
-</h3>
-
-<p><q class="quote">
-
-
-
-
-
-［東京　１９日　ロイター］ - エイチ・アイ・エス (9…</q></p>
-<p>出典：REUTERS<br>掲載日：<font >2015/02/20</font></p>
-</div>
-
-<div class="box col2"
-style="background-color:#ffffff;"
-onmouseover="javascript:lightOn(this);"
-onmouseout="javascript:lightOff(this);">
-<h3>
-<a href="" class="fits iframe" title="2歳児死亡「まるで人体実験」">
-<a href="" class="iframe" title="2歳児死亡「まるで人体実験」">2歳児死亡「まるで人体実験」</a>
-
-
-</a>
-</h3>
-
-<p><q class="quote">…</q></p>
-<p>出典：YAHOO<br>掲載日：<font >2015/02/20</font></p>
-</div>
 </div> <!-- #container -->
 </div>
 </div>
@@ -952,29 +408,27 @@ onmouseout="javascript:lightOff(this);">
 <a href="/main/2/"></a>
 </nav>
 
-<script src="http://newsfloat.net/static/js/jquery-1.7.1.min.js"></script>
-<script src="http://newsfloat.net/static/js/jquery.masonry.min.js"></script>
+<script src="{{assetsPath}}/js/jquery-1.7.1.min.js"></script>
+<script src="{{assetsPath}}/js/jquery.masonry.min.js"></script>
 
-<script src="http://newsfloat.net/static/js/jquery.infinitescroll.min.js"></script>
+<script src="{{assetsPath}}/js/jquery.infinitescroll.min.js"></script>
 
-<script src="http://newsfloat.net/static/js/jquery.colorbox.js"></script>
+<script src="{{assetsPath}}/js/jquery.colorbox.js"></script>
 
-<script type="text/javascript" src="http://newsfloat.net/static/js/jquery.floatingFixed.js"></script>
-<script type="text/javascript" src="http://newsfloat.net/static/js/jquery-ui-1.10.1.datepicker.min.js"></script>
+<script type="text/javascript" src="{{assetsPath}}/js/jquery.floatingFixed.js"></script>
+<script type="text/javascript" src="{{assetsPath}}/js/jquery-ui-1.10.1.datepicker.min.js"></script>
 
-<script type="text/javascript" src="http://newsfloat.net/static/js/jquery.tools.min.js"></script>
+<script type="text/javascript" src="{{assetsPath}}/js/jquery.tools.min.js"></script>
 
 
 
-<script type="text/javascript" src="http://newsfloat.net/static/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="{{assetsPath}}/js/jquery.cookie.js"></script>
 
 <script>
-var baseUrl = 'http://newsfloat.net/';
+var baseUrl = '{{baseUrl}}';
 
 var cookieNameMediaMenuOpen = 'MediaMenuOpen';
 var cookieWikipediaOpen		= 'WikipediaOpen';
-
-
 
 $(function(){
 
@@ -1058,42 +512,6 @@ element.html('<i class="icon-caret-right"></i> open');
 setCookie(cookieNameMediaMenuOpen, isOpened);
 }
 /** ----------------メディアメニュー関連の処理---------------- */
-
-/** ----------------wikipedia関連の処理---------------- */
-/** メディアメニューの開閉 */
-$(function(){
-$('.showWikipedia').click(function(e){
-$('.wikipedia').slideToggle( 450
-,  'linear'
-,  changeWikipediaIcon( $('a.menu-slider'), ! $('.wikipedia').isVisible() ) );
-});
-});
-/*
-$(function(){
-var isOpened = getCookie(cookieWikipediaOpen);
-
-var isOpenedFlag = (isOpened ? true : false);
-
-if(isOpenedFlag){
-$('.wikipedia').show();
-}else{
-$('.wikipedia').hide();
-}
-$('.wikipedia').slideToggle( 450
-,  'linear'
-,  changeWikipediaIcon($('.showWikipedia a.menu-slider'), isOpenedFlag) );
-});
-*/
-function changeWikipediaIcon(element, isOpened){
-
-if(isOpened){
-element.html('<i class="icon-caret-down"></i> wikipedia close');
-}else{
-element.html('<i class="icon-caret-right"></i> wikipedia open');
-}
-setCookie(cookieWikipediaOpen, isOpened);
-}
-/** ----------------wikipedia関連の処理---------------- */
 
 function lightOn(element){
 element.style.backgroundColor = '#ffffab';
@@ -1335,7 +753,7 @@ window.api = root.data("scrollable");
 <a class="btn btn-small" href="mailto:Ym54mY@live.jp"><i class="icon-envelope"></i> ご連絡はこちらまで</a>
 <div id="space1"></div>
 【免責事項】本アプリのご利用につき、何らかのトラブルや損失・損害等につきましては一切責任を問わないものとします。
-<br>(C) 2013 News Float
+<br>(C) 2013 {{appName}}
 </footer>
 
 </section> <!-- #content -->
