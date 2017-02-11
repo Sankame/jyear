@@ -83,9 +83,22 @@ router.get("/") { request, response, next in
     try response.render(viewTemplate, context: context).end()
 }
 
+router.get("/cal") { request, response, next in
+    defer {
+        next()
+    }
+
+    var context:Dictionary<String,Any> = [
+        "hoge" : ""
+    ]
+
+    var viewTemplate = "cal.stencil"
+    
+    try response.render(viewTemplate, context: context).end()
+}
+
 // Add an HTTP server and connect it to the router
 Kitura.addHTTPServer(onPort: 8090, with: router)
 
 // Start the Kitura runloop (this call never returns)
 Kitura.run()
-
