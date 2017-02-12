@@ -38,7 +38,11 @@ class Month{
             let theDate = cal.date(from: dateComps)
             //日にちと曜日の組み合わせを配列に格納。
             let date:Dictionary<String,String>
-                    = ["date":String(eachDate), "day":dateFormatter.string(from: theDate!)]
+                    = [
+                        "month":String(self.month)
+                        , "date":String(eachDate)
+                        , "day":dateFormatter.string(from: theDate!)
+                    ]
             self.dates.append(date)
             
         }

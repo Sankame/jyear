@@ -335,9 +335,12 @@ onmouseout="javascript:lightOff(this);">
 <h3>
 1月
 </h3>
-xxxxxxxxxx<br>
-xxxxxxxxxx<br>
-xxxxxxxxxx<br>
+{% for eachDate in datesByMonth.1 %}
+<tr>
+<td>{{eachDate.date}}({{eachDate.day}})</td>
+</tr>
+{% endfor %}
+
 </div>
 
 <div class="box col3"
@@ -347,9 +350,11 @@ onmouseout="javascript:lightOff(this);">
 <h3>
 1月
 </h3>
-xxxxxxxxxx<br>
-xxxxxxxxxx<br>
-xxxxxxxxxx<br>
+{% for eachDate in datesByMonth.2 %}
+<tr>
+<td>{{eachDate.date}}({{eachDate.day}})</td>
+</tr>
+{% endfor %}
 </div>
 
 <div class="box col3"
@@ -541,31 +546,6 @@ queryString = queryString + (queryString!='' ? '&' : '?') + 's=' + siteList;
 //cl(queryString);
 location.href = baseUrl + queryString;
 }
-
-/** サイトによる絞り込み */
-function searchNews(){
-/*
-var siteNameExpression		  = "input:checkbox[name='site_name[]']";
-var checkedSiteNameExpression = "input:checkbox[name='site_name[]']:checked";
-
-var checked = [];
-
-$(checkedSiteNameExpression).each(function(){
-checked.push(this.value);
-});
-var queryString;
-
-if(checked.length === 0){
-queryString = '';
-}else{
-//全チェックの場合、QueryStringでサイトを指定しない。
-if($(siteNameExpression).length === checked.length){
-queryString = '';
-}else{
-queryString = '?s=' + checked.join(',');
-}
-}
-*/
 
 //location.href = baseUrl + queryString;
 var siteList = getSiteNameFilter();

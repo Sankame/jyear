@@ -7,8 +7,12 @@ class Year{
     //年
     private var year:Int = 0
     
+    private var datesOfYear = [Dictionary<String,String>]()
+    
+    private var datesByMonth:Dictionary<String, Array<Dictionary<String,String>>> = [:]
+    
     init(year:Int){
-        var datesOfYear = [Dictionary<String,String>]()
+        
         
         self.year = year
         
@@ -16,16 +20,22 @@ class Year{
             let endDate = self.getEndByMonth(year: self.year, month: $0)
             let month:Month = Month(year: self.year, month: $0, start: 1, end: endDate)
             datesOfYear = datesOfYear + month.getDates()
+            
+            self.datesByMonth[String($0)] = month.getDates()
         }
-        
-        for eachDate in datesOfYear{
-            print(eachDate["date"]! + "/" + eachDate["day"]!)
-        }
+
+// TODO,debug
+//        for eachDate in datesOfYear{
+//            print(eachDate["month"]! + "/" + eachDate["date"]! + "/" + eachDate["day"]!)
+//        }
     }
     
-//    public func getDates()->Array<Dictionary<String,String>>{
-//        return self.dates
-//    }
+    public func getDates()->Dictionary<String, Array<Dictionary<String,String>>>{
+//        var datesForReturn:Dictionary<String, Array<Dictionary<String,String>>> = [:]
+//        datesForReturn["test"] = self.datesOfYear
+//        return datesForReturn
+        return self.datesByMonth
+    }
     
     private func getEndByMonth(year:Int, month:Int)->Int{
         switch month {

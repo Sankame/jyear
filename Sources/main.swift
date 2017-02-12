@@ -96,6 +96,7 @@ router.get("/cal") { request, response, next in
         "appName" : "シンプルカレンダー"
         ,"baseUrl" : "https://jyear.net/cal"
         ,"assetsPath" : "/cal"
+        ,"datesByMonth" : year.getDates()
     ]
 
     var viewTemplate = "cal.stencil"
