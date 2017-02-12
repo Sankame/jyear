@@ -14,19 +14,18 @@ extension String {
 let router = Router()
 
 router.add(templateEngine: StencilTemplateEngine())
-
 router.all("/", middleware: StaticFileServer(path: "./Views/Public"))
 
-//Handle HTTP GET requests to Stencil
+//******************************************
+// 和暦表示
+//******************************************
 router.get("/") { request, response, next in
     //これでドメインは取れる。ローカルならjyear.localになる。
 //    Log.logger = HeliumLogger()
-    
     let qsYear = request.queryParameters["year"] ?? ""
 
 //    Log.verbose(pYear)
 
-//    try! response.redirect("https://jyear.net/")
     defer {
         next()
     }
@@ -83,11 +82,16 @@ router.get("/") { request, response, next in
     try response.render(viewTemplate, context: context).end()
 }
 
+//******************************************
+// シンプルカレンダー
+//******************************************
 router.get("/cal") { request, response, next in
     defer {
         next()
     }
 
+    let year = Year(year:2017)
+    
     var context:Dictionary<String,Any> = [
         "appName" : "シンプルカレンダー"
         ,"baseUrl" : "https://jyear.net/cal"
