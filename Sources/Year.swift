@@ -9,7 +9,7 @@ class Year{
     
     //private var datesOfYear = [Dictionary<String,String>]()
     
-    private var datesByMonth:Dictionary<String, Array<Dictionary<String,String>>> = [:]
+    private var datesByMonth:Dictionary<String, Array<Dictionary<String,Any>>> = [:]
     
     init(year:Int){
         
@@ -30,16 +30,16 @@ class Year{
 //        }
     }
     
-    public func getDates()->Dictionary<String, Array<Dictionary<String,String>>>{
+    public func getDates()->Dictionary<String, Array<Dictionary<String,Any>>>{
 //        var datesForReturn:Dictionary<String, Array<Dictionary<String,String>>> = [:]
 //        datesForReturn["test"] = self.datesOfYear
 //        return datesForReturn
         return self.datesByMonth
     }
     
-    private func makeCalData(datesOfMonth:Array<Dictionary<String,String>>)->Array<Dictionary<String,String>>{
+    private func makeCalData(datesOfMonth:Array<Dictionary<String,String>>)->Array<Dictionary<String,Any>>{
         
-        var calData = [Dictionary<String,String>]()
+        var calData = [Dictionary<String,Any>]()
         
         let days = ["日", "月", "火", "水", "木", "金", "土"]
         var calIndex = 0
@@ -49,8 +49,14 @@ class Year{
         
             for day in days{
 
-                var item:Dictionary<String, String> = [:]
-                item["index"] = String(calIndex)
+                var item:Dictionary<String, Any> = [:]
+
+                if day == days[0] {
+                    item["first"] = "1"
+                }
+                if day == days[days.count-1] {
+                    item["last"] = "1"
+                }
 
                 // カレンダーとその月の曜日が一致する間だけ日にちをセット。
                 if monthIndex < datesOfMonth.count
@@ -69,7 +75,7 @@ class Year{
                 calData.append(item)
                 calIndex = calIndex + 1
                 
-                if day == days[days.count-1] && item["date"] == ""{
+                if day == days[days.count-1] && item["date"] as! String == ""{
                     break week
                 }
             }
