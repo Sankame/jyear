@@ -7,8 +7,6 @@ class Year{
     //年
     private var year:Int = 0
     
-    //private var datesOfYear = [Dictionary<String,String>]()
-    
     private var datesByMonth:Dictionary<String, Array<Dictionary<String,Any>>> = [:]
     
     init(year:Int){
@@ -19,24 +17,16 @@ class Year{
         (1...12).forEach{
             let endDate = self.getEndByMonth(year: self.year, month: $0)
             let month:Month = Month(year: self.year, month: $0, start: 1, end: endDate)
-//            datesOfYear = datesOfYear + month.getDates()
             
             self.datesByMonth[String($0)] = self.makeCalData(datesOfMonth: month.getDates())
         }
 
-// TODO,debug
-//        for eachDate in datesOfYear{
-//            print(eachDate["month"]! + "/" + eachDate["date"]! + "/" + eachDate["day"]!)
-//        }
     }
     
     public func getDates()->Dictionary<String, Array<Dictionary<String,Any>>>{
-//        var datesForReturn:Dictionary<String, Array<Dictionary<String,String>>> = [:]
-//        datesForReturn["test"] = self.datesOfYear
-//        return datesForReturn
         return self.datesByMonth
     }
-    
+
     private func makeCalData(datesOfMonth:Array<Dictionary<String,String>>)->Array<Dictionary<String,Any>>{
         
         var calData = [Dictionary<String,Any>]()

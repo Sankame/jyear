@@ -1,0 +1,10 @@
+{% extends "month.html" %}
+
+{% block month %}5月{% endblock %}
+{% block dates %}
+{% for eachDate in datesByMonth.5 %}
+{% if eachDate.first %}<tr>{% endif %}
+    <td>{{eachDate.date}}</td>
+    {% if eachDate.last %}</tr>{% endif %}
+{% endfor %}
+{% endblock %}

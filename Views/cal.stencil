@@ -394,53 +394,9 @@ onmouseout="javascript:lightOff(this);">
 </div>
 
 
-<div class="box col3"
-style="background-color:#ffffff;"
-onmouseover="javascript:lightOn(this);"
-onmouseout="javascript:lightOff(this);">
-<h3>
-1月
-</h3>
-xxxxxxxxxx<br>
-xxxxxxxxxx<br>
-xxxxxxxxxx<br>
-</div>
+{% include "test4.html" %}
 
-<div class="box col3"
-style="background-color:#ffffff;"
-onmouseover="javascript:lightOn(this);"
-onmouseout="javascript:lightOff(this);">
-<h3>
-1月
-</h3>
-xxxxxxxxxx<br>
-xxxxxxxxxx<br>
-xxxxxxxxxx<br>
-</div>
-
-<div class="box col3"
-style="background-color:#ffffff;"
-onmouseover="javascript:lightOn(this);"
-onmouseout="javascript:lightOff(this);">
-<h3>
-1月
-</h3>
-xxxxxxxxxx<br>
-xxxxxxxxxx<br>
-xxxxxxxxxx<br>
-</div>
-
-<div class="box col3"
-style="background-color:#ffffff;"
-onmouseover="javascript:lightOn(this);"
-onmouseout="javascript:lightOff(this);">
-<h3>
-1月
-</h3>
-xxxxxxxxxx<br>
-xxxxxxxxxx<br>
-xxxxxxxxxx<br>
-</div>
+{% include "test5.html" %}
 
 </div> <!-- #container -->
 </div>
