@@ -329,74 +329,18 @@ color: #FF4500;
 <div>
 <div id="container" class="transitions-enabled infinite-scroll clearfix" >
 
-<div class="box col3"
-style="background-color:#ffffff;"
-onmouseover="javascript:lightOn(this);"
-onmouseout="javascript:lightOff(this);">
-<h3>
-1月
-</h3>
-
-<table style="border: 1px soild blue">
-<tr valign="middle">
-<th class=""><font color="red">日</font></th>
-<th class=""><font color="black">月</font></th>
-<th class=""><font color="black">火</font></th>
-<th class=""><font color="black">水</font></th>
-<th class=""><font color="black">木</font></th>
-<th class=""><font color="black">金</font></th>
-<th class=""><font color="blue">土</font></th>
-</tr>
-
-{% for eachDate in datesByMonth.1 %}
-
-{% if eachDate.first %}
-<tr>
-{% endif %}
-
-<td>{{eachDate.date}}</td>
-
-{% if eachDate.last %}
-</tr>
-{% endif %}
-
-{% endfor %}
-
-</table>
-</div>
-
-<div class="box col3"
-style="background-color:#ffffff;"
-onmouseover="javascript:lightOn(this);"
-onmouseout="javascript:lightOff(this);">
-<h3>
-2月
-</h3>
-
-<table class="calendar_body" border="1">
-<tr valign="middle">
-<th class=""><font color="red">日</font></th>
-<th class=""><font color="black">月</font></th>
-<th class=""><font color="black">火</font></th>
-<th class=""><font color="black">水</font></th>
-<th class=""><font color="black">木</font></th>
-<th class=""><font color="black">金</font></th>
-<th class=""><font color="blue">土</font></th>
-</tr>
-
-{% for eachDate in datesByMonth.2 %}
-<tr>
-<td>{{eachDate.date}}({{eachDate.day}})</td>
-</tr>
-{% endfor %}
-</table>
-
-</div>
-
-
-{% include "test4.html" %}
-
-{% include "test5.html" %}
+{% include "month1.stencil" %}
+{% include "month2.stencil" %}
+{% include "month3.stencil" %}
+{% include "month4.stencil" %}
+{% include "month5.stencil" %}
+{% include "month6.stencil" %}
+{% include "month7.stencil" %}
+{% include "month8.stencil" %}
+{% include "month9.stencil" %}
+{% include "month10.stencil" %}
+{% include "month11.stencil" %}
+{% include "month12.stencil" %}
 
 </div> <!-- #container -->
 </div>

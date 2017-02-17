@@ -1,0 +1,12 @@
+{% extends "month-layout.stencil" %}
+
+{% block month %}2月{% endblock %}
+{% block dates %}
+
+{% for eachDate in datesByMonth.2 %}
+    {% if eachDate.first %}<tr>{% endif %}
+    <td>{{eachDate.date}}</td>
+    {% if eachDate.last %}</tr>{% endif %}
+{% endfor %}
+
+{% endblock %}
