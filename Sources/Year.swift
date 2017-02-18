@@ -9,16 +9,19 @@ class Year{
     
     private var datesByMonth:Dictionary<String, Array<Dictionary<String,Any>>> = [:]
     
+    private let calendar = Calendar(identifier: .gregorian)
+    
     init(year:Int){
-        
         
         self.year = year
         
         (1...12).forEach{
-            let endDate = self.getEndByMonth(year: self.year, month: $0)
-            let month:Month = Month(year: self.year, month: $0, start: 1, end: endDate)
+            let monthNumber = $0
+            let endDate = self.getEndByMonth(year: self.year, month: monthNumber)
+            let month:Month = Month(year: self.year, month: monthNumber, start: 1, end: endDate)
             
-            self.datesByMonth[String($0)] = self.makeCalData(datesOfMonth: month.getDates())
+            self.datesByMonth[String(monthNumber)]
+                    = self.makeCalData(year: self.year, month: monthNumber, datesOfMonth: month.getDates())
         }
 
     }
@@ -27,8 +30,11 @@ class Year{
         return self.datesByMonth
     }
 
-    private func makeCalData(datesOfMonth:Array<Dictionary<String,String>>)->Array<Dictionary<String,Any>>{
-        
+    private func makeCalData(year:Int
+                            ,month:Int
+                            ,datesOfMonth:Array<Dictionary<String,String>>
+                            )->Array<Dictionary<String,Any>>{
+
         var calData = [Dictionary<String,Any>]()
         
         let days = ["日", "月", "火", "水", "木", "金", "土"]
@@ -52,7 +58,17 @@ class Year{
                 if monthIndex < datesOfMonth.count
                     && day == datesOfMonth[monthIndex]["day"]{
 
-                    item["date"] = datesOfMonth[monthIndex]["date"]
+                    let date = datesOfMonth[monthIndex]["date"]
+                    let dateYYYYMMDD
+                            = self.calendar.date(from: DateComponents(year: year
+                                                                    , month: month
+                                                                    , day: Int(date!))
+                                                )
+
+                    if self.calendar.isDateInToday(dateYYYYMMDD!){
+                        item["date-css"] = "today"
+                    }
+                    item["date"] = date
                     item["day"] = datesOfMonth[monthIndex]["day"]
                     
                     monthIndex = monthIndex+1

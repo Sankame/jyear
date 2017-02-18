@@ -5,7 +5,7 @@
 
 {% for eachDate in datesByMonth.6 %}
     {% if eachDate.first %}<tr>{% endif %}
-    <td>{{eachDate.date}}</td>
+    <td class="date {{eachDate.date-css}}">{{eachDate.date}}</td>
     {% if eachDate.last %}</tr>{% endif %}
 {% endfor %}
 

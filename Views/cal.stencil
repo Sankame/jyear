@@ -287,6 +287,13 @@ font.publish-date-emphasis{
 color: #FF4500;
 }
 
+td.date{
+#background-color:#F3F6FF;
+}
+
+td.today{
+background-color:#FF0000;
+}
 </style>
 </head>
 <body >
