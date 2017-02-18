@@ -288,12 +288,19 @@ color: #FF4500;
 }
 
 td.date{
-#background-color:#F3F6FF;
+}
+td.saturday{
+    color:#1D39C0;
+    background-color:#EDF8FE;
+}
+td.sunday{
+    color:#FF0000;
+    background-color:#FFDDDD;
+}
+td.today{
+    background-color:#FFFF80;
 }
 
-td.today{
-background-color:#FF0000;
-}
 </style>
 </head>
 <body >

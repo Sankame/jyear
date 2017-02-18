@@ -11,6 +11,16 @@ class Year{
     
     private let calendar = Calendar(identifier: .gregorian)
     
+    private enum Day {
+        static let Sunday = "日"
+        static let Monday = "月"
+        static let Tuesday = "火"
+        static let Wednesday = "水"
+        static let Thurseday = "木"
+        static let Friday = "金"
+        static let Saturday = "土"
+    }
+    
     init(year:Int){
         
         self.year = year
@@ -36,8 +46,8 @@ class Year{
                             )->Array<Dictionary<String,Any>>{
 
         var calData = [Dictionary<String,Any>]()
-        
-        let days = ["日", "月", "火", "水", "木", "金", "土"]
+        let days = [Day.Sunday, Day.Monday, Day.Tuesday, Day.Wednesday
+                            , Day.Thurseday, Day.Friday, Day.Saturday]
         var calIndex = 0
         var monthIndex = 0
 
@@ -59,17 +69,29 @@ class Year{
                     && day == datesOfMonth[monthIndex]["day"]{
 
                     let date = datesOfMonth[monthIndex]["date"]
+                    let day = datesOfMonth[monthIndex]["day"]
+                    
+                    //今日かどうかの判定。
                     let dateYYYYMMDD
                             = self.calendar.date(from: DateComponents(year: year
                                                                     , month: month
                                                                     , day: Int(date!))
                                                 )
 
+                    var css = ""
                     if self.calendar.isDateInToday(dateYYYYMMDD!){
-                        item["date-css"] = "today"
+                        css = "today"
                     }
+                    if day==Day.Sunday{
+                        css = css + " sunday"
+                    }
+                    if day==Day.Saturday{
+                        css = css + " saturday"
+                    }
+
+                    item["date-css"] = css
                     item["date"] = date
-                    item["day"] = datesOfMonth[monthIndex]["day"]
+                    item["day"] = day
                     
                     monthIndex = monthIndex+1
 
