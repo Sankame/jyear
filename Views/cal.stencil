@@ -3,18 +3,16 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8" />
-
 <title>{{appName}}</title>
-
-<meta name="description" content="Webメディアのトップニュース情報を毎日お届けします。">
-<meta name="keywords" content="Webメディア,トップニュース,ヘッドラインニュース,ニュース,最新ニュース,話題のニュース">
+<meta name="description" content="{{appName}}">
+<meta name="keywords" content="{{appName}}">
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <!--[if lt IE 9]><script src="{{assetsPath}}/js/html5.js"></script><![endif]-->
 
 <meta property="og:title" content="{{appName}}" />
 <meta property="og:type" content="website" />
-<meta property="og:description" content="各Webメディアのトップニュースへのリンクを毎日お届けします。" />
+<meta property="og:description" content="{{appName}}" />
 <meta property="og:url" content="{{baseUrl}}" />
 <meta property="og:image" content="" />
 <meta property="og:site_name" content="{{appName}}" />
@@ -27,7 +25,6 @@
 <link rel="stylesheet" href="{{assetsPath}}/css/site.css">
 <link rel="stylesheet" href="{{assetsPath}}/css/prettify.css">
 <link rel="stylesheet" href="{{assetsPath}}/css/font-awesome.css">
-
 <link rel="stylesheet" href="{{assetsPath}}/css/style.css" />
 <link rel="stylesheet" href="{{assetsPath}}/css/colorbox.css" />
 <link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/redmond/jquery-ui.css" rel="stylesheet" />
@@ -58,16 +55,9 @@ color: #FF4500;
 font-weight: bold;
 text-decoration: none;
 }
-#site-nav {
-padding: 0 10px;
-position: absolute;
-width: 130px;
-}
-#site-nav li {
-width: 128px;
-}
+
 #content {
-padding: 10px 10px 10px 160px;
+padding: 10px 10px 10px 10px;
 }
 .box {
 background: none repeat scroll 0 0 #ffffff;
@@ -105,9 +95,7 @@ h2.emph {
 background: none repeat scroll 0 0 #333333;
 color: #FFFFFF;
 }
-#site-nav h1 a {
-color: #191970;
-}
+
 a {
 color: #0088CC;
 font-weight: bold;
@@ -184,7 +172,6 @@ font-family: museo-slab,"Helvetica Neue",Helvetica,Arial,sans-serif;
 
 #title-bar {
 background-image: linear-gradient(to bottom, #191970, #4169E1);
-
 background-image: -moz-linear-gradient(top, #191970, #4169e1);
 background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#191970), to(#4169e1));
 background-image: -webkit-linear-gradient(top, #191970, #4169e1);
@@ -198,7 +185,7 @@ clear: both;
 margin-bottom: 5px;
 outline: 0 none;
 padding: 5px;
-width: 250px;
+#width: 250px;
 text-align:center;
 font-family: museo-slab,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
@@ -265,20 +252,6 @@ img.fixed-image {
 max-width: 100px;
 height:40%\9;
 width:40%\9;
-}
-
-/* 検索ボックス調整 */
-.input-append input, .input-prepend input, .input-append select, .input-prepend select, .input-append .uneditable-input, .input-prepend .uneditable-input {
-border-radius: 0px 4px 4px 0px;
-margin-bottom: 0;
-position: relative;
-vertical-align: top;
-}
-input.span2, textarea.span2, .uneditable-input.span2 {
-width: 255px;
-}
-.search-word-remove{
-opacity: 0.5;
 }
 
 h1, h2 {
@@ -352,18 +325,11 @@ color: #FF4500;
 
 <script src="{{assetsPath}}/js/jquery-1.7.1.min.js"></script>
 <script src="{{assetsPath}}/js/jquery.masonry.min.js"></script>
-
 <script src="{{assetsPath}}/js/jquery.infinitescroll.min.js"></script>
-
 <script src="{{assetsPath}}/js/jquery.colorbox.js"></script>
-
 <script type="text/javascript" src="{{assetsPath}}/js/jquery.floatingFixed.js"></script>
 <script type="text/javascript" src="{{assetsPath}}/js/jquery-ui-1.10.1.datepicker.min.js"></script>
-
 <script type="text/javascript" src="{{assetsPath}}/js/jquery.tools.min.js"></script>
-
-
-
 <script type="text/javascript" src="{{assetsPath}}/js/jquery.cookie.js"></script>
 
 <script>
@@ -414,104 +380,6 @@ readyColorbox();
 
 });
 
-/** ----------------メディアメニュー関連の処理---------------- */
-/** 要素の表示・非表示判定用プラグイン */
-$.fn.isVisible = function() {
-return $.expr.filters.visible(this[0]);
-};
-
-/** メディアメニューの開閉 */
-$(function(){
-$('#menu .archive').click(function(e){
-$('+ul.subMenu',this).slideToggle( 450
-,  'linear'
-,  changeMenuIcon( $('#menu .archive a'), ! $('.subMenu').isVisible() ) );
-});
-});
-
-$(function(){
-var isOpened = getCookie(cookieNameMediaMenuOpen);
-
-var isOpenedFlag = (isOpened ? true : false);
-
-if(isOpenedFlag){
-$('.subMenu').show();
-}else{
-$('.subMenu').hide();
-}
-$('+ul.subMenu',this).slideToggle( 450
-,  'linear'
-,  changeMenuIcon($('#menu .archive a'), isOpenedFlag) );
-});
-
-function changeMenuIcon(element, isOpened){
-
-if(isOpened){
-element.html('<i class="icon-caret-down"></i> close');
-}else{
-element.html('<i class="icon-caret-right"></i> open');
-}
-setCookie(cookieNameMediaMenuOpen, isOpened);
-}
-/** ----------------メディアメニュー関連の処理---------------- */
-
-function lightOn(element){
-element.style.backgroundColor = '#ffffab';
-}
-
-function lightOff(element){
-element.style.backgroundColor = '#ffffff';
-}
-/** 検索キーワード削除 */
-function removeKeyword(){
-$("#search-by-keyword").val('');
-}
-
-/** 検索 */
-function searchByKeyword(){
-var queryString = '';
-var keyword		= jQuery.trim( $("#search-by-keyword").val() );
-
-if(keyword != ''){
-queryString = '?w=' + keyword;
-}
-
-var siteList = getSiteNameFilter();
-if(siteList != ''){
-queryString = queryString + (queryString!='' ? '&' : '?') + 's=' + siteList;
-}
-//cl(queryString);
-location.href = baseUrl + queryString;
-}
-
-//location.href = baseUrl + queryString;
-var siteList = getSiteNameFilter();
-location.href = baseUrl + (siteList!='' ? '?s=' + siteList : '');
-}
-
-function getSiteNameFilter(){
-var siteNameExpression		  = "input:checkbox[name='site_name[]']";
-var checkedSiteNameExpression = "input:checkbox[name='site_name[]']:checked";
-
-var checked = [];
-
-$(checkedSiteNameExpression).each(function(){
-checked.push(this.value);
-});
-var queryString;
-
-if(checked.length === 0){
-queryString = '';
-}else{
-//全チェックの場合、QueryStringでサイトを指定しない。
-if($(siteNameExpression).length === checked.length){
-queryString = '';
-}else{
-queryString = checked.join(',');
-}
-}
-return queryString;
-}
 
 $(document).ready(function(){
 readyColorbox();
@@ -611,18 +479,6 @@ $("#startdate").datepicker();
 $("#enddate").datepicker();
 });
 
-//チェックボックス一括チェックON/OFF
-$(function(){
-$('#check-all').click(function(){
-if(this.className == 'icon-check-empty'){
-$('#site-list input').attr('checked','checked');
-this.className = 'icon-check';
-}else{
-$('#site-list input').removeAttr('checked');
-this.className = 'icon-check-empty';
-}
-});
-});
 
 $(function() {
 var topBtn = $('#page-top');
@@ -643,12 +499,9 @@ scrollTop: 0
 return false;
 });
 });
-
-
 </script>
 
 <script language="javascript" type="text/javascript">
-
 $(function() {
 
 var root = $('.scrollable').scrollable({
@@ -662,21 +515,19 @@ autoplay: true     // 自動スクロール.
 
 window.api = root.data("scrollable");
 });
-
-
 </script>
 
 <footer>
 <a class="btn btn-small" href="mailto:Ym54mY@live.jp"><i class="icon-envelope"></i> ご連絡はこちらまで</a>
 <div id="space1"></div>
 【免責事項】本アプリのご利用につき、何らかのトラブルや損失・損害等につきましては一切責任を問わないものとします。
-<br>(C) 2013 {{appName}}
+<br>(C) 2017 {{appName}}
 </footer>
 
 </section> <!-- #content -->
 
-<input type="hidden" id='check' value='1'>
 <p id="page-top"><a href="javascript:return false;">Scroll to Top</a></p>
+
 </form>
 </body>
 </html>
