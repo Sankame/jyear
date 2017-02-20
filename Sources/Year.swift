@@ -24,7 +24,7 @@ class Year{
     init(year:Int){
         
         self.year = year
-        
+
         (1...12).forEach{
             let monthNumber = $0
             let endDate = self.getEndByMonth(year: self.year, month: monthNumber)
@@ -71,11 +71,13 @@ class Year{
                     let date = datesOfMonth[monthIndex]["date"]
                     let day = datesOfMonth[monthIndex]["day"]
                     
+                    let dateNumber = Int(date!)
+                    
                     //今日かどうかの判定。
                     let dateYYYYMMDD
                             = self.calendar.date(from: DateComponents(year: year
                                                                     , month: month
-                                                                    , day: Int(date!))
+                                                                    , day: dateNumber)
                                                 )
 
                     var css = ""
@@ -89,6 +91,10 @@ class Year{
                         css = css + " saturday"
                     }
 
+                    if Holiday.isHoliday(year: year, month: month, date: dateNumber!){
+                        css = css + " holiday"
+                    }
+                    
                     item["date-css"] = css
                     item["date"] = date
                     item["day"] = day

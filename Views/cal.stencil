@@ -297,6 +297,9 @@ td.sunday{
     color:#FF0000;
     background-color:#FFDDDD;
 }
+td.holiday{
+    background-color:#00FF00;
+}
 td.today{
     background-color:#FFFF80;
 }
