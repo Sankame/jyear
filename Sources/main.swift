@@ -99,7 +99,8 @@ router.get("/cal") { request, response, next in
         ,"datesByMonth" : year.getDates()
     ]
 
-    var viewTemplate = "cal.stencil"
+    //var viewTemplate = "cal.stencil"
+    var viewTemplate = "simple-cal.stencil"
     
     try response.render(viewTemplate, context: context).end()
 }
