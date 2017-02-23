@@ -80,6 +80,9 @@ td.today{
 .work-item{
     /* margin-bottom: 100px; */
 }
+.element-center{
+    text-align:center;
+}
 </style>
 
 <!-- Modernizr JS -->
@@ -96,8 +99,8 @@ td.today{
 <aside id="fh5co-aside" role="complementary" class="border js-fullheight">
 
 <h1 id="fh5co-logo">
-<a href="index.html">
-<img src="/simple-cal/images/logo.png" alt="Free HTML5 Bootstrap Website Template">
+<a href="{{baseUrl}}">
+<img src="/simple-cal/images/cal-logo-8.png" alt="Free HTML5 Bootstrap Website Template">
 </a>
 </h1>
 <nav id="fh5co-main-menu" role="navigation">
@@ -110,7 +113,7 @@ td.today{
 <div class="fh5co-footer">
 <p>
 <small>
-<span>&copy; 2017 シンプルカレンダー All Rights Reserved.</small></span>
+<span>&copy; 2017 {{appName}} All Rights Reserved.</small></span>
 <span>Template Design <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a> </span>
 </small>
 </p>
@@ -121,7 +124,7 @@ td.today{
 <div id="fh5co-main">
 
 <div class="fh5co-narrow-content">
-<h2 class="fh5co-heading-colored fh5co-heading animate-box" data-animate-effect="fadeInLeft">{{targetYear}}年</h2>
+<h2 class="fh5co-heading-colored fh5co-heading animate-box element-center" data-animate-effect="fadeInLeft">{{targetYear}}年</h2>
 <div class="row animate-box" data-animate-effect="fadeInLeft">
 
 <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item">
@@ -196,7 +199,7 @@ td.today{
 
 <!-- MAIN JS -->
 <script src="/simple-cal/js/main.js"></script>
-
+{% include "ga.stencil" %}
 </body>
 </html>
 

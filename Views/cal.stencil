@@ -546,5 +546,8 @@ window.api = root.data("scrollable");
 <p id="page-top"><a href="javascript:return false;">Scroll to Top</a></p>
 
 </form>
+
+{% include "ga.stencil" %}
+
 </body>
 </html>

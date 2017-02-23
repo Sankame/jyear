@@ -96,7 +96,7 @@ router.get("/cal") { request, response, next in
     
     var context:Dictionary<String,Any> = [
         "appName" : "シンプルカレンダー"
-        ,"baseUrl" : "https://jyear.net/cal"
+        ,"baseUrl" : "/cal"
         ,"assetsPath" : "/cal"
         ,"targetYear" : targetYear
         ,"datesByMonth" : year.getDates()
