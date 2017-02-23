@@ -1,7 +1,6 @@
-<div class="box col3" style="background-color:#ffffff;">
+<div>
     <h3>{% block month %}{% endblock %}</h3>
-    
-    <table class="calendar_body" border="1">
+    <table class="calendar_body" border="1" width="100%" height="250px">
         <tr valign="middle">
             <th class=""><font color="red">日</font></th>
             <th class=""><font color="black">月</font></th>

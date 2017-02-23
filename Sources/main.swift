@@ -90,12 +90,15 @@ router.get("/cal") { request, response, next in
         next()
     }
 
-    let year = Year(year:2017)
+    //TODO,最初は固定。
+    let targetYear = 2017
+    let year = Year(year:targetYear)
     
     var context:Dictionary<String,Any> = [
         "appName" : "シンプルカレンダー"
         ,"baseUrl" : "https://jyear.net/cal"
         ,"assetsPath" : "/cal"
+        ,"targetYear" : targetYear
         ,"datesByMonth" : year.getDates()
     ]
 
