@@ -100,6 +100,7 @@ router.get("/cal") { request, response, next in
         ,"assetsPath" : "/cal"
         ,"targetYear" : targetYear
         ,"datesByMonth" : year.getDates()
+        ,"thisMonthFound" : year.getThisMonthFound()
     ]
 
     //var viewTemplate = "cal.stencil"

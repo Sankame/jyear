@@ -4,13 +4,15 @@ import Foundation
 //
 class Year{
     
-    //年
     private var year:Int = 0
     
     private var datesByMonth:Dictionary<String, Array<Dictionary<String,Any>>> = [:]
     
     private let calendar = Calendar(identifier: .gregorian)
-    
+
+    //指定した年のカレンダーに当月が含まれる場合、その月の数字が格納される。
+    private var thisMonthFound:Int = 0
+
     private enum Day {
         static let Sunday = "日"
         static let Monday = "月"
@@ -40,6 +42,10 @@ class Year{
         return self.datesByMonth
     }
 
+    public func getThisMonthFound()->Int{
+        return self.thisMonthFound
+    }
+    
     private func makeCalData(year:Int
                             ,month:Int
                             ,datesOfMonth:Array<Dictionary<String,String>>
@@ -83,6 +89,7 @@ class Year{
                     var css = ""
                     if self.calendar.isDateInToday(dateYYYYMMDD!){
                         css = "today"
+                        self.thisMonthFound = month
                     }
                     if day==Day.Sunday{
                         css = css + " sunday"

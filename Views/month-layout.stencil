@@ -1,4 +1,4 @@
-<div>
+<div id="{% block id %}{% endblock %}">
     <h3>{% block month %}{% endblock %}</h3>
     <table class="calendar_body" border="1" width="100%" height="250px">
         <tr valign="middle">

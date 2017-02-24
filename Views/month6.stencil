@@ -1,5 +1,6 @@
 {% extends "month-layout.stencil" %}
 
+{% block id %}month6{% endblock %}
 {% block month %}6月{% endblock %}
 {% block dates %}
 
