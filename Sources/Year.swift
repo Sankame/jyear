@@ -108,8 +108,8 @@ class Year{
                 
                 calData.append(item)
                 calIndex = calIndex + 1
-                
-                if day == days[days.count-1] && item["date"] as! String == ""{
+                //週の終わりで、その月の日数に達している場合、カレンダー終了。
+                if day == days[days.count-1] && datesOfMonth.count <= monthIndex{
                     break week
                 }
             }
