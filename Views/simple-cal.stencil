@@ -104,6 +104,13 @@ h3.month-label{
 }
 </style>
 
+<!-- Modernizr JS -->
+<script src="/simple-cal/js/modernizr-2.6.2.min.js"></script>
+<!-- FOR IE9 below -->
+<!--[if lt IE 9]>
+<script src="/simple-cal/js/respond.min.js"></script>
+<![endif]-->
+
 </head>
 <body>
 <div id="fh5co-page">
@@ -193,6 +200,21 @@ h3.month-label{
 </div>
 </div>
 
+<!-- jQuery -->
+<script src="/simple-cal/js/jquery.min.js"></script>
+<!-- jQuery Easing -->
+<script src="/simple-cal/js/jquery.easing.1.3.js"></script>
+<!-- Bootstrap -->
+<script src="/simple-cal/js/bootstrap.min.js"></script>
+<!-- Carousel -->
+<script src="/simple-cal/js/owl.carousel.min.js"></script>
+<!-- Stellar -->
+<script src="/simple-cal/js/jquery.stellar.min.js"></script>
+<!-- Waypoints -->
+<script src="/simple-cal/js/jquery.waypoints.min.js"></script>
+<!-- Counters -->
+<script src="/simple-cal/js/jquery.countTo.js"></script>
+
 <script type="text/javascript">
 $(function(){
 var targetOffset = $('#month{{thisMonthFound}}').offset().top;
@@ -201,7 +223,7 @@ var targetOffset = $('#month{{thisMonthFound}}').offset().top;
 </script>
 
 <!-- MAIN JS -->
-<script src="/simple-cal/js/bundle.js"></script>
+<script src="/simple-cal/js/main.js"></script>
 {% include "ga.stencil" %}
 </body>
 </html>
