@@ -3,6 +3,7 @@ var gulp = require('gulp');
 // gulpプラグインを読み込む
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
+//var minifyCss = require('gulp-minify-css');
 
 // jsタスクを定義する
 gulp.task('js', function () {
@@ -26,5 +27,20 @@ gulp.task('js', function () {
     .pipe(gulp.dest('./Views/Public/simple-cal/js/dist')); //distディレクトリに出力
 });
 
+// gulp.task('css', function() {
+//   return gulp.src([
+//           './Views/Public/simple-cal/css/animate.css'
+//           ,'./Views/Public/simple-cal/css/icomoon.css'
+//           ,'./Views/Public/simple-cal/css/bootstrap.css'
+//           ,'./Views/Public/simple-cal/css/owl.carousel.min.css'
+//           ,'./Views/Public/simple-cal/css/owl.theme.default.min.css'
+//           ,'./Views/Public/simple-cal/css/style.css'
+//       ])
+//     .pipe(concat('bundle.css'))
+//     .pipe(minifyCss())
+//     .pipe(gulp.dest('./Views/Public/simple-cal/css/dist'));
+// });
+
 // jsタスクをdefaultタスクとして登録
+// gulp.task('default', ['js','css']);
 gulp.task('default', ['js']);

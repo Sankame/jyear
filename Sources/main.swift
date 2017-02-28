@@ -86,13 +86,28 @@ router.get("/") { request, response, next in
 // シンプルカレンダー
 //******************************************
 router.get("/cal") { request, response, next in
+
+    let qsYear = request.queryParameters["year"] ?? ""
+    
     defer {
         next()
     }
 
+    //表示対象の西暦
+    var targetYear:Int = 0
+    
+    if(qsYear.isNumeric){
+        targetYear = Int(qsYear)!
+    }else{
+        targetYear = Int(DateUtil.getThisYearString())!
+    }
+
     //TODO,最初は固定。
-    let targetYear = 2017
+//    let targetYear = 2017
     let year = Year(year:targetYear)
+    
+    //viewでboolしか判定できないためthisMonthFoundにはfalseを設定。
+    let thisMonthFound = year.getThisMonthFound()
     
     var context:Dictionary<String,Any> = [
         "appName" : "シンプルカレンダー"
@@ -100,7 +115,7 @@ router.get("/cal") { request, response, next in
         ,"assetsPath" : "/cal"
         ,"targetYear" : targetYear
         ,"datesByMonth" : year.getDates()
-        ,"thisMonthFound" : year.getThisMonthFound()
+        ,"thisMonthFound" : thisMonthFound==0 ? false : thisMonthFound
     ]
 
     //var viewTemplate = "cal.stencil"

@@ -197,14 +197,15 @@ h3.month-label{
 <!-- MAIN JS -->
 <script src="/simple-cal/js/dist/bundle.js"></script>
 
+{% if thisMonthFound %}
 <script type="text/javascript">
 $(function(){
 var targetOffset = $('#month{{thisMonthFound}}').offset().top;
 $('html,body').delay(1000).animate({scrollTop: targetOffset}, "slow");
 });
 </script>
+{% endif %}
 
 {% include "ga.stencil" %}
 </body>
 </html>
-

@@ -1,7 +1,6 @@
 <div id="{% block id %}{% endblock %}">
     <div class="year-label">{{targetYear}}</div>
     <h3 class="month-label">{% block month %}{% endblock %}</h3>
-    <!--<table border="1" width="100%" height="250px">-->
     <table class="cal">
         <tr>
             <th><font color="#da1212">日</font></th>
