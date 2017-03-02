@@ -44,7 +44,9 @@ Facebook: 		https://www.facebook.com/fh5co
 <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
-<link rel="stylesheet" href="/simple-cal/css/dist/bundle.css">
+<link rel="stylesheet" href="/simple-cal/css/dist/bundle1.css">
+<link rel="stylesheet" href="/simple-cal/css/dist/bundle2.css">
+<link rel="stylesheet" href="/simple-cal/css/dist/bundle3.css">
 
 <style>
 table, th{
@@ -185,7 +187,9 @@ h3.month-label{
 </div>
 
 <!-- MAIN JS -->
-<script src="/simple-cal/js/dist/bundle.js"></script>
+<script src="/simple-cal/js/dist/bundle1.js"></script>
+<script src="/simple-cal/js/dist/bundle2.js"></script>
+<script src="/simple-cal/js/dist/bundle3.js"></script>
 
 {% if thisMonthFound %}
 <script type="text/javascript">
