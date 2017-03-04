@@ -56,7 +56,7 @@ table.cal{
     border:solid 1px grey;
     width:100%;
     height:250px;
-color:#000000;
+    color:#000000;
 }
 table.cal th{
     border:solid 1px grey;
@@ -79,9 +79,6 @@ td.holiday{
 /* 土日祝日より後に定義する */
 td.today{
     background-color:#FFFF80;
-}
-.work-item{
-    /* margin-bottom: 100px; */
 }
 .element-center{
     text-align:center;
@@ -111,7 +108,9 @@ h3.month-label{
 <nav id="fh5co-main-menu" role="navigation">
 <ul>
 <li><h3 class="fh5co-heading-colored fh2co-heading">{{appName}}</h3></li>
-<li class="fh5co-active"><a href="{{baseUrl}}">Home</a></li>
+<li {% if calCheck.isThisYearShown %}class="fh5co-active"{% endif %}><a href="{{baseUrl}}?year={{cal.thisYear}}">今年({{cal.thisYear}})</a></li>
+<li {% if calCheck.isNextYearShown %}class="fh5co-active"{% endif %}><a href="{{baseUrl}}?year={{cal.nextYear}}">来年({{cal.nextYear}})</a></li>
+<li {% if calCheck.isLastYearShown %}class="fh5co-active"{% endif %}><a href="{{baseUrl}}?year={{cal.lastYear}}">去年({{cal.lastYear}})</a></li>
 </ul>
 </nav>
 

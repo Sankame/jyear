@@ -18,6 +18,8 @@ class Holiday{
                 holiday = Holiday2018()
             case 2017:
                 holiday = Holiday2017()
+            case 2016:
+                holiday = Holiday2016()
             default:
                 holiday = Holiday2017()
         }

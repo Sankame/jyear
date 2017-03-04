@@ -93,32 +93,56 @@ router.get("/cal") { request, response, next in
         next()
     }
 
-    //表示対象の西暦
+    //表示対象の西暦。
     var targetYear:Int = 0
     
     if(qsYear.isNumeric){
         targetYear = Int(qsYear)!
+        
+        if (2016...2018) ~= targetYear{
+        }else{
+            //範囲外の年はエラー
+            response.status(.notFound)
+            try response.send("指定されたカレンダーはまだ取り扱っていません。").end()
+        }
     }else{
         targetYear = Int(DateUtil.getThisYearString())!
     }
 
-    //TODO,最初は固定。
-//    let targetYear = 2017
     let year = Year(year:targetYear)
     
     //viewでboolしか判定できないためthisMonthFoundにはfalseを設定。
     let thisMonthFound = year.getThisMonthFound()
+
+    //今年と前後の年を取得。
+    let thisYear = Int(DateUtil.getThisYearString())!
+    let nextYear = thisYear+1
+    let lastYear = thisYear-1
     
+    let cal:Dictionary<String,Int> = [
+        "thisYear" : thisYear
+        , "nextYear" : nextYear
+        , "lastYear" : lastYear
+    ]
+
+    //現在表示している年が何年に該当するか？
+    let calCheck:Dictionary<String,Bool> = [
+        "isThisYearShown" : (thisYear==targetYear) ? true : false
+        , "isNextYearShown" : (nextYear==targetYear) ? true : false
+        , "isLastYearShown" : (lastYear==targetYear) ? true : false
+    ]
+
     var context:Dictionary<String,Any> = [
         "appName" : "シンプルカレンダー"
-        ,"baseUrl" : "/cal"
+        ,"baseUrl" : "/cal/"
         ,"assetsPath" : "/cal"
         ,"targetYear" : targetYear
         ,"datesByMonth" : year.getDates()
         ,"thisMonthFound" : thisMonthFound==0 ? false : thisMonthFound
+        ,"cal" : cal
+        ,"calCheck" : calCheck
     ]
 
-    //var viewTemplate = "cal.stencil"
     var viewTemplate = "simple-cal.stencil"
     
     try response.render(viewTemplate, context: context).end()
