@@ -1,77 +1,83 @@
+// gulpを読み込む
 var gulp = require('gulp');
-// gulpプラグイン
+// gulpプラグインを読み込む
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var minifyCss = require('gulp-minify-css');
 
-// タスクを定義
+// jsタスクを定義する
 gulp.task('js1', function () {
+  // タスクを実行するグロブを指定
   gulp.src([
-    './path-to/js/modernizr-2.6.2.min.js'
-    ,'./path-to/js/respond.min.js'
-    ,'./path-to/js/jquery.min.js'
-    ])
-    // 実行順にpipeでつなぐ
-    // ファイルを結合し、bundle.jsファイルとして出力
-    .pipe(concat('bundle1.js'))
-    // ファイルを圧縮する
-    .pipe(uglify({preserveComments: 'some'}))
-    // 最後にdistディレクトリへ出力
-    .pipe(gulp.dest('./path-to/js/dist'));
+  	'./Views/Public/simple-cal/js/modernizr-2.6.2.min.js'
+  	,'./Views/Public/simple-cal/js/respond.min.js'
+  	,'./Views/Public/simple-cal/js/jquery.min.js'
+  	])
+    // 実行する処理を実行する順にpipeでつないでいく
+    .pipe(concat('bundle1.js')) //ファイルを結合し、bundle.jsファイルとして出力
+    .pipe(uglify({preserveComments: 'some'})) // ファイルを圧縮する（ライセンス情報は外す）
+    .pipe(gulp.dest('./Views/Public/simple-cal/js/dist')); //distディレクトリに出力
 });
 
+// jsタスクを定義する
 gulp.task('js2', function () {
+  // タスクを実行するグロブを指定
   gulp.src([
-    './path-to/js/jquery.easing.1.3.js'
-    ,'./path-to/js/bootstrap.min.js'
-    ])
-    .pipe(concat('bundle2.js'))
-    .pipe(uglify({preserveComments: 'some'}))
-    .pipe(gulp.dest('./path-to/js/dist'));
+  	'./Views/Public/simple-cal/js/jquery.easing.1.3.js'
+  	,'./Views/Public/simple-cal/js/bootstrap.min.js'
+  	])
+    // 実行する処理を実行する順にpipeでつないでいく
+    .pipe(concat('bundle2.js')) //ファイルを結合し、bundle.jsファイルとして出力
+    .pipe(uglify({preserveComments: 'some'})) // ファイルを圧縮する（ライセンス情報は外す）
+    .pipe(gulp.dest('./Views/Public/simple-cal/js/dist')); //distディレクトリに出力
 });
 
+// jsタスクを定義する
 gulp.task('js3', function () {
+  // タスクを実行するグロブを指定
   gulp.src([
-    './path-to/js/owl.carousel.min.js'
-    ,'./path-to/js/jquery.stellar.min.js'
-    ,'./path-to/js/jquery.waypoints.min.js'
-    ,'./path-to/js/jquery.countTo.js'
-    ,'./path-to/js/main.js'
-    ])
-    .pipe(concat('bundle3.js'))
-    .pipe(uglify({preserveComments: 'some'}))
-    .pipe(gulp.dest('./path-to/js/dist'));
+  	'./Views/Public/simple-cal/js/owl.carousel.min.js'
+  	,'./Views/Public/simple-cal/js/jquery.stellar.min.js'
+  	,'./Views/Public/simple-cal/js/jquery.waypoints.min.js'
+  	,'./Views/Public/simple-cal/js/jquery.countTo.js'
+  	,'./Views/Public/simple-cal/js/main.js'
+  	,'./Views/Public/simple-cal/js/simple-cal.js'
+  	])
+    // 実行する処理を実行する順にpipeでつないでいく
+    .pipe(concat('bundle3.js')) //ファイルを結合し、bundle.jsファイルとして出力
+    .pipe(uglify({preserveComments: 'some'})) // ファイルを圧縮する（ライセンス情報は外す）
+    .pipe(gulp.dest('./Views/Public/simple-cal/js/dist')); //distディレクトリに出力
 });
 
 gulp.task('css1', function() {
   return gulp.src([
-          './path-to/css/animate.css'
-          ,'./path-to/css/icomoon.css'
+          './Views/Public/simple-cal/css/animate.css'
+          ,'./Views/Public/simple-cal/css/icomoon.css'
       ])
     .pipe(concat('bundle1.css'))
     .pipe(minifyCss())
-    .pipe(gulp.dest('./path-to/css/dist'));
+    .pipe(gulp.dest('./Views/Public/simple-cal/css/dist'));
 });
 
 gulp.task('css2', function() {
   return gulp.src([
-        './path-to/css/bootstrap.css'
+  		  './Views/Public/simple-cal/css/bootstrap.css'
       ])
     .pipe(concat('bundle2.css'))
     .pipe(minifyCss())
-    .pipe(gulp.dest('./path-to/css/dist'));
+    .pipe(gulp.dest('./Views/Public/simple-cal/css/dist'));
 });
 
 gulp.task('css3', function() {
   return gulp.src([
-        './path-to/css/owl.carousel.min.css'
-          ,'./path-to/css/owl.theme.default.min.css'
-          ,'./path-to/css/style.css'
+  		  './Views/Public/simple-cal/css/owl.carousel.min.css'
+          ,'./Views/Public/simple-cal/css/owl.theme.default.min.css'
+          ,'./Views/Public/simple-cal/css/style.css'
       ])
     .pipe(concat('bundle3.css'))
     .pipe(minifyCss())
-    .pipe(gulp.dest('./path-to/css/dist'));
+    .pipe(gulp.dest('./Views/Public/simple-cal/css/dist'));
 });
 
-// 上記タスクをdefaultとして登録
+// jsタスクをdefaultタスクとして登録
 gulp.task('default', ['js1','js2','js3','css1','css2','css3']);
