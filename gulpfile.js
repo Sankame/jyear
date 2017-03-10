@@ -4,6 +4,7 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var minifyCss = require('gulp-minify-css');
+var rev = require('gulp-rev');
 
 // jsタスクを定義する
 gulp.task('js1', function () {
@@ -50,7 +51,7 @@ gulp.task('js3', function () {
 });
 
 gulp.task('css1', function() {
-  return gulp.src([
+  gulp.src([
           './Views/Public/simple-cal/css/animate.css'
           ,'./Views/Public/simple-cal/css/icomoon.css'
       ])
@@ -60,7 +61,7 @@ gulp.task('css1', function() {
 });
 
 gulp.task('css2', function() {
-  return gulp.src([
+  gulp.src([
   		  './Views/Public/simple-cal/css/bootstrap.css'
       ])
     .pipe(concat('bundle2.css'))
@@ -69,7 +70,7 @@ gulp.task('css2', function() {
 });
 
 gulp.task('css3', function() {
-  return gulp.src([
+  gulp.src([
   		  './Views/Public/simple-cal/css/owl.carousel.min.css'
           ,'./Views/Public/simple-cal/css/owl.theme.default.min.css'
           ,'./Views/Public/simple-cal/css/style.css'
@@ -79,5 +80,23 @@ gulp.task('css3', function() {
     .pipe(gulp.dest('./Views/Public/simple-cal/css/dist'));
 });
 
+gulp.task('js-rev', () => {
+  gulp.src('./Views/Public/simple-cal/js/dist/*.js')
+    .pipe(rev())
+    .pipe(gulp.dest('./Views/Public/simple-cal/js/dist'))
+    .pipe(rev.manifest())
+    .pipe(gulp.dest('./Views/Public/simple-cal/js/dist'));
+});
+
+gulp.task('css-rev', () => {
+  gulp.src('./Views/Public/simple-cal/css/dist/*.js')
+    .pipe(rev())
+    .pipe(gulp.dest('./Views/Public/simple-cal/css/dist'))
+    .pipe(rev.manifest())
+    .pipe(gulp.dest('./Views/Public/simple-cal/css/dist'));
+});
+
 // jsタスクをdefaultタスクとして登録
-gulp.task('default', ['js1','js2','js3','css1','css2','css3']);
+gulp.task('default'
+        , ['js1','js2','js3','css1','css2','css3','js-rev','css-rev']
+);
