@@ -173,6 +173,7 @@
 		counterWayPoint();
 		burgerMenu();
 		mobileMenuOutsideClick();
+      console.log("hoges444");
 	});
 
 
