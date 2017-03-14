@@ -188,7 +188,7 @@ h3.month-label{
 <!-- MAIN JS -->
 <script src="/simple-cal/js/dist/bundle1-1ce7c3daf4.js"></script>
 <script src="/simple-cal/js/dist/bundle2-a62928f48d.js"></script>
-<script src="/simple-cal/js/dist/bundle3-36f0bcc430.js"></script>
+<script src="/simple-cal/js/dist/bundle3-cb23bfced2.js"></script>
 
 {% if thisMonthFound %}
 <script type="text/javascript">
