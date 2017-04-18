@@ -1,6 +1,5 @@
-// gulpを読み込む
+// gulpやgulpプラグインを読み込む。
 var gulp = require('gulp');
-// gulpプラグインを読み込む
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var minifyCss = require('gulp-minify-css');
@@ -8,11 +7,12 @@ var rev = require('gulp-rev');
 var revReplace = require('gulp-rev-replace');
 var clean = require('gulp-clean');
 
-//ファイルパス
+// ファイルパス
 var basePath = './Views/Public/simple-cal';
 var jsDist = '/js/dist';
 var cssDist = '/css/dist';
 
+// 出力対象のディレクトリやファイルを事前に削除。
 gulp.task('clean', function () {
   return gulp.src([
           basePath + jsDist
@@ -23,36 +23,33 @@ gulp.task('clean', function () {
     .pipe(clean());
 });
 
-// jsタスクを定義する
+// jsの結合、圧縮タスクを定義。
 gulp.task('js1', ['clean'], function () {
-  // タスクを実行するグロブを指定
   return gulp.src([
   	basePath + '/js/modernizr-2.6.2.min.js'
   	,basePath + '/js/respond.min.js'
   	,basePath + '/js/jquery.min.js'
   	])
-    // 実行する処理を実行する順にpipeでつないでいく
-    .pipe(concat('bundle1.js')) //ファイルを結合し、bundle.jsファイルとして出力
-    .pipe(uglify({preserveComments: 'some'})) // ファイルを圧縮する（ライセンス情報は外す）
-    .pipe(gulp.dest(basePath + jsDist)); //distディレクトリに出力
+    // 実行順にpipeでつなぐ。
+    // ファイルを結合し、bundleファイルとして出力。
+    .pipe(concat('bundle1.js'))
+    // ファイルを圧縮する。
+    .pipe(uglify({preserveComments: 'some'}))
+    // 最後にdistディレクトリへ出力。
+    .pipe(gulp.dest(basePath + jsDist));
 });
 
-// jsタスクを定義する
 gulp.task('js2', ['clean'], function () {
-  // タスクを実行するグロブを指定
   return gulp.src([
   	basePath + '/js/jquery.easing.1.3.js'
   	,basePath + '/js/bootstrap.min.js'
   	])
-    // 実行する処理を実行する順にpipeでつないでいく
-    .pipe(concat('bundle2.js')) //ファイルを結合し、bundle.jsファイルとして出力
-    .pipe(uglify({preserveComments: 'some'})) // ファイルを圧縮する（ライセンス情報は外す）
-    .pipe(gulp.dest(basePath + jsDist)); //distディレクトリに出力
+    .pipe(concat('bundle2.js'))
+    .pipe(uglify({preserveComments: 'some'}))
+    .pipe(gulp.dest(basePath + jsDist));
 });
 
-// jsタスクを定義する
 gulp.task('js3', ['clean'], function () {
-  // タスクを実行するグロブを指定
   return gulp.src([
   	basePath + '/js/owl.carousel.min.js'
   	,basePath + '/js/jquery.stellar.min.js'
@@ -61,10 +58,9 @@ gulp.task('js3', ['clean'], function () {
   	,basePath + '/js/main.js'
   	,basePath + '/js/simple-cal.js'
   	])
-    // 実行する処理を実行する順にpipeでつないでいく
-    .pipe(concat('bundle3.js')) //ファイルを結合し、bundle.jsファイルとして出力
-    .pipe(uglify({preserveComments: 'some'})) // ファイルを圧縮する（ライセンス情報は外す）
-    .pipe(gulp.dest(basePath + jsDist)); //distディレクトリに出力
+    .pipe(concat('bundle3.js'))
+    .pipe(uglify({preserveComments: 'some'}))
+    .pipe(gulp.dest(basePath + jsDist));
 });
 
 gulp.task('css1', ['clean'], function() {
@@ -97,6 +93,7 @@ gulp.task('css3', ['clean'], function() {
     .pipe(gulp.dest(basePath + cssDist));
 });
 
+// js/cssファイル名をユニーク化。
 gulp.task('js-rev', ['js1','js2','js3'], () => {
   return gulp.src(basePath + jsDist + '/*.js')
     .pipe(rev())
@@ -113,7 +110,8 @@ gulp.task('css-rev', ['css1','css2','css3'], () => {
     .pipe(gulp.dest(basePath + cssDist));
 });
 
-// stencil上のcss/jsの記述をバージョン付きに変更。
+// オリジナルstencilファイル内のjs/cssファイル名をユニーク化後
+// のファイル名に置換し、Views以下に配置。
 gulp.task('rev-replace', ['js-rev','css-rev'], () => {
   var manifest = gulp.src([
                 basePath + jsDist + '/rev-manifest.json'
@@ -126,7 +124,7 @@ gulp.task('rev-replace', ['js-rev','css-rev'], () => {
     .pipe(gulp.dest('./Views'));
 });
 
-// jsタスクをdefaultタスクとして登録
+// 上記タスクをdefaultとして登録
 gulp.task('default', ['js1','js2','js3'
                       ,'css1','css2','css3'
                       ,'js-rev','css-rev','rev-replace']
