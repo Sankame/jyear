@@ -56,7 +56,6 @@ gulp.task('js3', ['clean'], function () {
   	,basePath + '/js/jquery.waypoints.min.js'
   	,basePath + '/js/jquery.countTo.js'
   	,basePath + '/js/main.js'
-  	,basePath + '/js/simple-cal.js'
   	])
     .pipe(concat('bundle3.js'))
     .pipe(uglify({preserveComments: 'some'}))
