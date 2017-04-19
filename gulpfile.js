@@ -1,4 +1,4 @@
-// gulpやgulpプラグインを読み込む。
+// gulpとgulpプラグインを読み込む。
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
