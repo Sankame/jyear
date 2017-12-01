@@ -118,7 +118,7 @@ h3.month-label{
 <p>
 <small>
 <span>&copy; 2017 {{appName}} All Rights Reserved.</small></span>
-<span>Template Design <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a> </span>
+<span>Based on <a href="https://freehtml5.co/demos/nitro/index.html" target="_blank">Nitro Free HTML5</a> </span>
 </small>
 </p>
 </div><!-- fh5co-footer -->
