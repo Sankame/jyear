@@ -24,7 +24,7 @@ router.get("/") { request, response, next in
 //    Log.logger = HeliumLogger()
     let qsYear = request.queryParameters["year"] ?? ""
 
-//    Log.verbose(pYear)
+//    Log.verbose(qsYear)
 
     defer {
         next()
@@ -99,11 +99,11 @@ router.get("/cal") { request, response, next in
     if(qsYear.isNumeric){
         targetYear = Int(qsYear)!
         
-        if (2016...2018) ~= targetYear{
+        if (2016...2020) ~= targetYear{
         }else{
             //範囲外の年はエラー
             response.status(.notFound)
-            try response.send("指定されたカレンダーはまだ取り扱っていません。").end()
+            try response.send("The indicated calendar is not ready yet.").end()
         }
     }else{
         targetYear = Int(DateUtil.getThisYearString())!

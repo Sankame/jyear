@@ -14,6 +14,10 @@ class Holiday{
         let holiday:HolidayProtocol
         
         switch year {
+            case 2020:
+                holiday = Holiday2020()
+            case 2019:
+                holiday = Holiday2019()
             case 2018:
                 holiday = Holiday2018()
             case 2017:
