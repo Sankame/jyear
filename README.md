@@ -14,7 +14,7 @@ Server Side Swiftで元号とカレンダーを表示します。
 
     $ swift build && ./.build/debug/jyear
 
-- ビルドが通れば下記が表示されます。
+- ビルドが通れば下記が表示されます。(前回ビルドから修正がない場合は何も出ません)
 
     $ Linking ./.build/debug/jyear
 
