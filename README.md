@@ -5,6 +5,7 @@ Server Side Swiftで元号とカレンダーを表示します。
 # 動作環境
 
 * [Swift] 3.0.1
+* [Kitura] 1.1
 * [gulp] 3.9.1
 
 # ビルド
